@@ -137,5 +137,4 @@ color.undo.after=green
 color.undo.before=red
 
 
-urgency.user.project.6939.coefficient=2.9
 urgency.user.tag.later.coefficient=-6.0
