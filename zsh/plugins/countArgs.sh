@@ -1,0 +1,3 @@
+count_args() {
+	echo $#
+}

@@ -1,0 +1,17 @@
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.tmux.conf: tmux.conf
+    ~/.config/nvim: 
+      path: nvim/
+      create: true
+    ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh: ohmyzsh/
+    ~/.p10k.zsh: zsh/p10k
+    ~/.gitconfig: gitconfig
+    ~/.gitconfig.local: gitconfig.local
+    ~/.taskrc: taskwarriorrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
