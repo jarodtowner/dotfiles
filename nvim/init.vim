@@ -8,6 +8,7 @@ Plug 'APZelos/blamer.nvim'
 Plug 'preservim/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/vim-easy-align'
 
 "Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -31,7 +32,6 @@ Plug 'elzr/vim-json'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'haishanh/night-owl.vim'
 
-Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " |file-nav|
@@ -92,7 +92,11 @@ let g:lightline = { 'colorscheme': 'dracula' }
 " |startify|
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
-let g:startify_bookmarks = [ {'v': '~/.dotfiles/nvim/init.vim'}, {'z': '~/.dotfiles/zsh/zshrc'}, {'t': '~/.dotfiles/tmux.conf'} ]
+let g:startify_bookmarks = [
+  \ {'v': '~/.dotfiles/nvim/init.vim'},
+  \ {'z': '~/.dotfiles/zsh/zshrc'},
+  \ {'t': '~/.dotfiles/tmux.conf'}
+  \ ]
 let g:startify_session_dir = '.vim'
 
 " |git|
