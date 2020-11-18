@@ -97,9 +97,6 @@ alias opgi="op get item"
 alias todo="todo.sh"
 alias td="todo.sh"
 
-# Prompt Clearing
-PROMPT_POSITION="default" # default | bottom (Bottom will have the effect of leaving a bunch of space when you clear)
-
 # -------
 # Exports
 # -------
