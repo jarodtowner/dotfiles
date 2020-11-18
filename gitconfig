@@ -14,6 +14,7 @@
 	cm = "commit -m"
 	bsc = "branch --show-current"
 	m = "!f() { git checkout $1 && git pull; git checkout @{-1} && git merge $1; }; f"
+  cu = "branch --show-current"
 [credential]
 	helper = store
 [include]

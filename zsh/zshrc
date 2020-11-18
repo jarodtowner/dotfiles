@@ -42,6 +42,7 @@ source $ZSH/oh-my-zsh.sh
 # Customise Shell
 DEFAULT_USER='jarod'
 PROMPT_EOL_MARK=''
+PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
 
 # -------
 # Aliases
