@@ -36,6 +36,10 @@ DEFAULT_USER='jarod'
 PROMPT_EOL_MARK=''
 PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
 
+# Set up vim keybindings
+set -o vi
+bindkey -v
+
 # |aliases| 
 
 # Commands
