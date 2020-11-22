@@ -13,4 +13,5 @@
     ~/.taskrc: taskwarriorrc
 
 - shell:
+  - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./dependencies/macos.zsh', Installing MacOS Dependencies]
   - [git submodule update --init --recursive, Installing submodules]
