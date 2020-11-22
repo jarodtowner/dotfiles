@@ -5,3 +5,9 @@
 [submodule "ohmyzsh"]
 	path = ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "zshhighlighting"]
+  path = zsh/omz-custom/plugins/zsh-syntax-highlighting
+  url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "p10k"]
+  path = zsh/omz-custom/themes/powerlevel10k
+  url = https://github.com/romkatv/powerlevel10k
