@@ -10,7 +10,6 @@
     ~/.oh-my-zsh: ohmyzsh/
     ~/.p10k.zsh: zsh/p10k
     ~/.gitconfig: gitconfig
-    ~/.gitconfig.local: gitconfig.local
     ~/.taskrc: taskwarriorrc
 
 - shell:
