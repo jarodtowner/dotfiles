@@ -18,4 +18,4 @@ Sometimes you may want to have some specific overrides on each machine that you 
 |   zsh   |   `~/.zshrc_local`  |
 |   git   | `~/.gitconfig_local`|
 |  nvim   |  `~/.nvimrc_local`  |
-|  tmux   | `~/.tmux.conf_local`|
+|  tmux   | `~/.tmux_local.conf`|
