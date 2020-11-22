@@ -3,8 +3,14 @@
 - link:
     ~/.dotfiles: ''
     ~/.tmux.conf: tmux.conf
-    ~/.config/nvim: 
-      path: nvim/
+    ~/.config/nvim/init.vim: 
+      path: nvim/init.vim
+      create: true
+    ~/.config/nvim/coc-settings.json: 
+      path: nvim/coc-settings.json
+      create: true
+    ~/.local/share/nvim/site/autoload/plug.vim:
+      path: nvim/vim-plug/plug.vim
       create: true
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh: ohmyzsh/
