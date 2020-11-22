@@ -3,6 +3,7 @@
 #
 #   Oh My Zsh Configuration ......... |oh-my-zsh|
 #   Shell Configuration ............. |shell-config|
+#   Functions ....................... |functions|
 #   Aliases ......................... |aliases|
 #   Exports ......................... |exports|
 #   Misc ............................ |misc|
@@ -39,6 +40,29 @@ PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
 # Set up vim keybindings
 set -o vi
 bindkey -v
+
+# |functions|
+
+# Get one specific line of stdin
+function getLine() {
+  head -n $1 | tail -n 1
+}
+
+# Encrypt a file with a password
+encrypt() {
+	echo "Enter Password:"
+	read -s temp_pass
+	echo $temp_pass | openssl enc -in $1 -aes-256-cbc -pass stdin > $2
+	temp_pass=""
+}
+
+# Decrypt a file with a password
+decrypt() {
+	echo "Enter Password:"
+	read -s temp_pass
+	echo $temp_pass | openssl enc -in $1 -d -aes-256-cbc -pass stdin > $2
+	temp_pass=""
+}
 
 # |aliases| 
 
@@ -77,7 +101,6 @@ alias -g G="| grep"
 alias -g Ge="| grep -E"
 alias -g H="| head -n"
 alias -g T="| tail -n"
-alias -g line="| head -n $1 | tail -n 1"
 
 # |exports|
 
