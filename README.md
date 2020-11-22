@@ -4,9 +4,16 @@ Within are my configuration files for zsh, neovim, tmux and some other things. I
 
 ## Installation
 ```bash
+# One Line Installation
+
+curl https://raw.githubusercontent.com/jarodtowner/dotfiles/main/remote-install.zsh | zsh && source ~/.zshrc
+
+# Manual Install
+
 git clone https://github.com/jarodtowner/dotfiles 
 cd dotfiles
 ./install
+source ~/.zshrc
 ```
 
 ## Local Overriding
