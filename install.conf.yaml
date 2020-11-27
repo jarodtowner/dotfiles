@@ -3,18 +3,18 @@
 - link:
     ~/.dotfiles: ''
     ~/.tmux.conf: tmux.conf
-    ~/.config/nvim/init.vim: 
+    $XDG_CONFIG_HOME/nvim/init.vim: 
       path: nvim/init.vim
       create: true
-    ~/.config/nvim/coc-settings.json: 
+    $XDG_CONFIG_HOME/nvim/coc-settings.json: 
       path: nvim/coc-settings.json
       create: true
-    ~/.local/share/nvim/site/autoload/plug.vim:
+    $XDG_DATA_HOME/nvim/site/autoload/plug.vim:
       path: nvim/vim-plug/plug.vim
       create: true
     ~/.zshrc: zsh/zshrc
-    ~/.oh-my-zsh: ohmyzsh/
-    ~/.p10k.zsh: zsh/p10k
+    $XDG_DATA_HOME/.oh-my-zsh: ohmyzsh/
+    $XDG_CONFIG_HOME/.p10k.zsh: zsh/p10k
     ~/.gitconfig: gitconfig
     ~/.taskrc: taskwarriorrc
 
