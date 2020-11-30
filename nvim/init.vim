@@ -42,6 +42,8 @@ nmap <C-p> :Files<CR>
 vmap ga <Plug>(EasyAlign)
 nmap <C-l> :BLines<CR>
 nmap <C-a> <C-b>
+let NERDTreeShowLineNumbers=1
+autocmd FileType nerdtree setlocal relativenumber
 " |code-nav|
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -112,7 +114,8 @@ let g:coc_global_extensions = [
   \ 'coc-angular',
   \ 'coc-vetur',
   \ 'coc-sql',
-  \ 'coc-html'
+  \ 'coc-html',
+  \ 'coc-css'
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
