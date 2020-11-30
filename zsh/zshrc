@@ -123,8 +123,8 @@ export ANDROID_SDK_ROOT=~/Library/Android/sdk
 # Custom Plugin Manager
 # ---------------------
 
-# Sources all files in ./plugins unless they end with .disable
-for file in ~/.dotfiles/zsh/plugins/*; do
+# Sources all files in ./autoload unless they end with .disable
+for file in ~/.dotfiles/zsh/autoload/*; do
 	if [ $(echo "$file" | grep -vE ".disable$") ]; then
 		source "$file"
 	fi
