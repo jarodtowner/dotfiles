@@ -24,23 +24,19 @@ fi
 
 export PATH=/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/lib/node_modules:/Users/jarod/bin:$HOME/platform-tools
 
-# Path to your oh-my-zsh installation.
-export ZSH="$XDG_DATA_HOME/.oh-my-zsh"
-export ZSH_CUSTOM="$HOME/.dotfiles/zsh/omz-custom"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # load modules
 zmodload zsh/zpty
-
-# Custom plugins can be added to the $ZSH_CUSTOM directory
-plugins=(zsh-syntax-highlighting zsh_reload osx vscode iterm2)
-source $ZSH/oh-my-zsh.sh
 
 # |shell-config|
 
 DEFAULT_USER='jarod'
 PROMPT_EOL_MARK=''
 PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
+
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+autoload -Uz compinit && compinit
+setopt autocd
 
 # Set up vim keybindings
 set -o vi
@@ -70,12 +66,19 @@ decrypt() {
 }
 
 # |aliases| 
-
 # Commands
 alias py="python3"
 alias weather="curl v2.wttr.in"
 alias vim="nvim"
 alias ovim="/usr/bin/vim"
+alias src="source ~/.zshrc"
+
+# directories
+alias ls="ls -G"
+alias la="ls -A"
+alias ll="ls -Al"
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 ## Spotify
 alias sfy="spotify"
@@ -138,3 +141,6 @@ fi
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
 
 TASKRC=$XDG_CONFIG_HOME/.taskrc
+
+source ~/.dotfiles/zsh/omz-custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.dotfiles/zsh/omz-custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
