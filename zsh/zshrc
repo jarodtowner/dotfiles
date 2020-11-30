@@ -29,7 +29,6 @@ zmodload zsh/zpty
 
 # |shell-config|
 
-DEFAULT_USER='jarod'
 PROMPT_EOL_MARK=''
 PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
 
