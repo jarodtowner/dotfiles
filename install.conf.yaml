@@ -13,7 +13,6 @@
       path: nvim/vim-plug/plug.vim
       create: true
     ~/.zshrc: zsh/zshrc
-    $XDG_DATA_HOME/.oh-my-zsh: ohmyzsh/
     $XDG_CONFIG_HOME/.p10k.zsh: zsh/p10k
     ~/.gitconfig: gitconfig
     ~/.taskrc: taskwarriorrc
