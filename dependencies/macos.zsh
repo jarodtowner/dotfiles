@@ -7,3 +7,4 @@ brew install neovim
 brew install the_silver_searcher
 brew install node
 brew install cowsay
+brew install python3
