@@ -141,3 +141,4 @@ fi
 
 TASKRC=$XDG_CONFIG_HOME/.taskrc
 
+clear
