@@ -1,3 +1,3 @@
 # Autoload
 
-Any files in here will be automatically sourced at the end of zsh startup, unless the file name ends with .disable
+Any file in here which ends with .zsh will automatically be sourced.

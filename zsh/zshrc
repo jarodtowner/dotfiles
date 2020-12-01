@@ -123,7 +123,7 @@ export ANDROID_SDK_ROOT=~/Library/Android/sdk
 # ---------------------
 
 # Sources all files in ./autoload unless they end with .disable
-for file in ~/.dotfiles/zsh/autoload/*; do
+for file in ~/.dotfiles/zsh/autoload/*.zsh; do
 	if [ $(echo "$file" | grep -vE ".disable$") ]; then
 		source "$file"
 	fi
