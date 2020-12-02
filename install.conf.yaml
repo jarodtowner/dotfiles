@@ -1,4 +1,8 @@
-- clean: ['~']
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
     ~/.dotfiles: ''
@@ -13,7 +17,6 @@
       path: nvim/vim-plug/plug.vim
       create: true
     ~/.zshrc: zsh/zshrc
-    $XDG_CONFIG_HOME/.p10k.zsh: zsh/p10k
     ~/.gitconfig: gitconfig
     $XDG_CONFIG_HOME/taskwarrior/taskrc: taskwarriorrc
 
