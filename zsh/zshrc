@@ -1,22 +1,28 @@
 # ==================================================
 # Contents
 #
-#   Oh My Zsh Configuration ......... |oh-my-zsh|
+#   Exports ......................... |exports|
 #   Shell Configuration ............. |shell-config|
 #   Functions ....................... |functions|
 #   Aliases ......................... |aliases|
-#   Exports ......................... |exports|
-#   Misc ............................ |misc|
+#   Load External Files ............. |external|
 #
 # ==================================================
 
-# XDG Files
+# |exports|
+# XDG Standards
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-# |oh-my-zsh|
+export COWPATH=/usr/local/share/cows:$XDG_DATA_HOME/cows
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home
+export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_SDK_ROOT=~/Library/Android/sdk
+export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
+export FZF_DEFAULT_COMMAND='fd --type f'
 
+# |shell-config|
 # Enables p10k instant prompt 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -27,8 +33,6 @@ export PATH=/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-
 # load modules
 zmodload zsh/zpty
 
-# |shell-config|
-
 PROMPT_EOL_MARK=''
 PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
 
@@ -37,9 +41,7 @@ bindkey '\e[B' history-beginning-search-forward
 autoload -Uz compinit && compinit
 setopt autocd
 
-export FZF_DEFAULT_COMMAND='fd --type f'
-
-# Set up vim keybindings
+# Set up vim keybindings for commandline prompt
 set -o vi
 bindkey -v
 
@@ -97,21 +99,9 @@ alias -g Ge="| grep -E"
 alias -g H="| head -n"
 alias -g T="| tail -n"
 
-# |exports|
+# |external|
 
-export COWPATH=/usr/local/share/cows:$XDG_DATA_HOME/cows
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home
-export ANDROID_HOME=~/Library/Android/sdk
-export ANDROID_SDK_ROOT=~/Library/Android/sdk
-export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
-
-# |misc|
-
-# ---------------------
-# Custom Plugin Manager
-# ---------------------
-
-# Sources all files in ./autoload unless they end with .disable
+# Autoload directory
 for file in ~/.dotfiles/zsh/autoload/*.zsh; do
 	if [ $(echo "$file" | grep -vE ".disable$") ]; then
 		source "$file"
@@ -127,6 +117,5 @@ fi
 [[ ! -f $XDG_CONFIG_HOME/.p10k.zsh ]] || source $XDG_CONFIG_HOME/.p10k.zsh
 
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
-
 
 clear
