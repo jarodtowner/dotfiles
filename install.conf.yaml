@@ -15,7 +15,7 @@
     ~/.zshrc: zsh/zshrc
     $XDG_CONFIG_HOME/.p10k.zsh: zsh/p10k
     ~/.gitconfig: gitconfig
-    ~/.taskrc: taskwarriorrc
+    $XDG_CONFIG_HOME/taskwarrior/taskrc: taskwarriorrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

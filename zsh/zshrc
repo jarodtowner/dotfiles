@@ -50,22 +50,6 @@ function getLine() {
   head -n $1 | tail -n 1
 }
 
-# Encrypt a file with a password
-encrypt() {
-	echo "Enter Password:"
-	read -s temp_pass
-	echo $temp_pass | openssl enc -in $1 -aes-256-cbc -pass stdin > $2
-	temp_pass=""
-}
-
-# Decrypt a file with a password
-decrypt() {
-	echo "Enter Password:"
-	read -s temp_pass
-	echo $temp_pass | openssl enc -in $1 -d -aes-256-cbc -pass stdin > $2
-	temp_pass=""
-}
-
 # |aliases| 
 # Commands
 alias py="python3"
@@ -119,6 +103,7 @@ export COWPATH=/usr/local/share/cows:$XDG_DATA_HOME/cows
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home
 export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
+export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
 
 # |misc|
 
@@ -143,6 +128,5 @@ fi
 
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
 
-TASKRC=$XDG_CONFIG_HOME/.taskrc
 
 clear
