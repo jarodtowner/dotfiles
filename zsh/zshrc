@@ -37,6 +37,8 @@ bindkey '\e[B' history-beginning-search-forward
 autoload -Uz compinit && compinit
 setopt autocd
 
+export FZF_DEFAULT_COMMAND='fd --type f'
+
 # Set up vim keybindings
 set -o vi
 bindkey -v
@@ -67,7 +69,9 @@ decrypt() {
 # |aliases| 
 # Commands
 alias py="python3"
-alias weather="curl v2.wttr.in"
+function weather() {
+  curl v2.wttr.in/$1
+}
 alias vim="nvim"
 alias ovim="/usr/bin/vim"
 alias src="source ~/.zshrc"
