@@ -4,6 +4,10 @@
     ~/.config:
       recursive: true
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./dependencies/macos.zsh', Installing MacOS Dependencies]
+
 - link:
     ~/.dotfiles: ''
     ~/.tmux.conf: tmux.conf
@@ -19,7 +23,3 @@
     ~/.zshrc: zsh/zshrc
     ~/.gitconfig: gitconfig
     $XDG_CONFIG_HOME/taskwarrior/taskrc: taskwarriorrc
-
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./dependencies/macos.zsh', Installing MacOS Dependencies]
