@@ -9,7 +9,7 @@ preexec() {
 
 precmd() {
 	if [ ! "$cmd"	]; then
-		custom_clear || clear
+		eval $EMPTY_COMMAND
 	fi
 	cmd=''
   return 0;

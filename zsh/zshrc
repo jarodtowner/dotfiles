@@ -21,6 +21,7 @@ export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
+export EMPTY_COMMAND='ls' # If an empty command is entered, this command will be run instead
 
 # |shell-config|
 # Enables p10k instant prompt 
