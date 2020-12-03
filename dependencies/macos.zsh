@@ -10,3 +10,4 @@ type "cowsay" &> /dev/null || brew install cowsay
 type "python3" &> /dev/null || brew install python3
 type "fd" &> /dev/null || brew install fd
 type "ruby" &> /dev/null || brew install ruby
+type "az" &> /dev/null || brew install azure-cli
