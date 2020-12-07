@@ -1,20 +1,33 @@
 function scripts() {
-  if [ -f package.json ]; then
-    SCRIPT=$(cat package.json | jq '.scripts | keys | .[]' -r | fzf)
-    if [ -f yarn.lock ]; then
-      COMMAND="yarn run $SCRIPT"
-    else
-      COMMAND="npm run $SCRIPT"
-    fi
-  elif [ -f Makefile ]; then
-    SCRIPT=$(cat Makefile | grep -e "^[a-zA-Z0-9]*:" | sed "s/:.*//g" | fzf)
-    COMMAND="make $SCRIPT"
+  OPTIONS=""
+  if [ -f Makefile ]; then
+    for f in $(cat Makefile | grep -e "^[a-zA-Z0-9]*:" | sed "s/:.*//g"); do
+      OPTIONS="${OPTIONS}make ${f}\n"
+    done
   fi
+  for f in $(find . -maxdepth 1 | grep -e "\.zsh$"); do
+    OPTIONS="${OPTIONS}${f}\n"
+  done
+  for f in $(find . -maxdepth 1 | grep -e "\.sh$"); do
+    OPTIONS="${OPTIONS}${f}\n"
+  done
+  if [ -f package.json ]; then
+    if [ -f yarn.lock ]; then
+      for f in $(cat package.json | jq '.scripts | keys | .[]' -r); do
+        OPTIONS="${OPTIONS}yarn run ${f}\n"
+      done
+    else
+      for f in $(cat package.json | jq '.scripts | keys | .[]' -r); do
+        OPTIONS="${OPTIONS}npm run ${f}\n"
+      done
+    fi
+  fi
+  SCRIPT=$(echo $OPTIONS | grep -ve "^$" | fzf)
   if [ $SCRIPT ]; then
-    echo "> $COMMAND"
-    print -s $COMMAND
-    eval $COMMAND
+    echo "> $SCRIPT"
+    print -s $SCRIPT
+    eval $SCRIPT
   else
-    echo "No script selected. Exited."
+    echo "No script selected. Exiting"
   fi
 }
