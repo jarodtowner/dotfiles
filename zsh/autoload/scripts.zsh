@@ -5,10 +5,7 @@ function scripts() {
       OPTIONS="${OPTIONS}make ${f}\n"
     done
   fi
-  for f in $(find . -maxdepth 1 | grep -e "\.zsh$"); do
-    OPTIONS="${OPTIONS}${f}\n"
-  done
-  for f in $(find . -maxdepth 1 | grep -e "\.sh$"); do
+  for f in $(find . -maxdepth 1 | grep -e "\.(zsh\|sh\|bash)$"); do
     OPTIONS="${OPTIONS}${f}\n"
   done
   if [ -f package.json ]; then
