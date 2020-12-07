@@ -8,7 +8,7 @@ function scripts() {
     fi
   elif [ -f Makefile ]; then
     SCRIPT=$(cat Makefile | grep -e "^[a-zA-Z0-9]*:" | sed "s/:.*//g" | fzf)
-    COMMAND="npm run $SCRIPT"
+    COMMAND="make $SCRIPT"
   fi
   if [ $SCRIPT ]; then
     echo "> $COMMAND"
