@@ -17,7 +17,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export COWPATH=/usr/local/share/cows:$XDG_DATA_HOME/cows
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home
-export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
@@ -29,7 +28,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/lib/node_modules:/Users/jarod/bin:$HOME/platform-tools
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
 
 # load modules
 zmodload zsh/zpty
@@ -42,9 +41,7 @@ bindkey '\e[B' history-beginning-search-forward
 autoload -Uz compinit && compinit
 setopt autocd
 
-# Set up vim keybindings for commandline prompt
-set -o vi
-bindkey -v
+bindkey -e
 
 # |functions|
 
@@ -117,3 +114,4 @@ fi
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
 
 clear
+
