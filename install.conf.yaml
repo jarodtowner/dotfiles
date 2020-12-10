@@ -3,30 +3,35 @@
       force: true
     ~/.config:
       recursive: true
-
-- create:
-  - $XDG_CONFIG_HOME/zsh
-  - $XDG_CONFIG_HOME/bash
+    $XDG_CONFIG_HOME:
+      recursive: true
 
 - shell:
+  - ['XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}', 'Setting Variables']
   - [git submodule update --init --recursive, Installing submodules]
-  - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./packages/homebrew.sh', Installing Homebrew Packages]
-  - ['zsh ./packages/npm.sh', 'Installing NPM Packages']
-  - ['which yum && zsh ./packages/yum.sh', 'Installing yum Packages']
+  - ['which brew && zsh ./packages/homebrew.sh || true', Installing Homebrew Packages]
+  - ['which node && zsh ./packages/npm.sh || true', 'Installing NPM Packages']
+  - ['which yum && zsh ./packages/yum.sh || true', 'Installing yum Packages']
 
 - link:
     ~/.dotfiles: ''
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: tmux/tmux.conf
     $XDG_CONFIG_HOME/nvim/init.vim: 
       path: nvim/init.vim
       create: true
     $XDG_CONFIG_HOME/nvim/coc-settings.json: 
       path: nvim/coc-settings.json
       create: true
-    $XDG_DATA_HOME/nvim/site/autoload/plug.vim:
+    $XDG_CONFIG_HOME/nvim/site/autoload/plug.vim:
       path: nvim/vim-plug/plug.vim
       create: true
-    ~/.zshrc: zsh/zshrc
-    ~/.bashrc: bash/bashrc
-    ~/.gitconfig: gitconfig
-    $XDG_CONFIG_HOME/taskwarrior/taskrc: taskwarriorrc
+    ~/.zshrc:
+      path: zsh/zshrc
+      create: true
+    ~/.bashrc:
+      path: bash/bashrc
+      create: true
+    ~/.gitconfig: git/gitconfig
+    $XDG_CONFIG_HOME/taskwarrior/taskrc:
+      path: taskwarrior/taskrc
+      create: true
