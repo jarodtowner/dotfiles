@@ -8,7 +8,7 @@
 
 - shell:
   - ['XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}', 'Setting Variables']
-  - [git submodule update --init --recursive, Installing submodules]
+  - ['git submodule update --init --recursive', 'Installing submodules']
   - ['which brew && zsh ./packages/homebrew.sh || true', Installing Homebrew Packages]
   - ['which node && zsh ./packages/npm.sh || true', 'Installing NPM Packages']
   - ['which yum && zsh ./packages/yum.sh || true', 'Installing yum Packages']
@@ -16,6 +16,13 @@
 - link:
     ~/.dotfiles: ''
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.zshrc:
+      path: zsh/zshrc
+      create: true
+    ~/.bashrc:
+      path: bash/bashrc
+      create: true
+    ~/.gitconfig: git/gitconfig
     $XDG_CONFIG_HOME/nvim/init.vim: 
       path: nvim/init.vim
       create: true
@@ -25,13 +32,6 @@
     $XDG_CONFIG_HOME/nvim/site/autoload/plug.vim:
       path: nvim/vim-plug/plug.vim
       create: true
-    ~/.zshrc:
-      path: zsh/zshrc
-      create: true
-    ~/.bashrc:
-      path: bash/bashrc
-      create: true
-    ~/.gitconfig: git/gitconfig
     $XDG_CONFIG_HOME/taskwarrior/taskrc:
       path: taskwarrior/taskrc
       create: true
