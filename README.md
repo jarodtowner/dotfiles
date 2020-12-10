@@ -22,7 +22,7 @@ Sometimes you may want to have some specific overrides on each machine that you 
 
 | Program | Local Override File |
 | :-----: | :------------------ |
-|   zsh   |   `~/.zshrc_local`  |
+|   zsh   |   `~/.config/zsh/zshrc_local`  |
 |   git   | `~/.gitconfig_local`|
 |  nvim   |  `~/.nvimrc_local`  |
 |  tmux   | `~/.tmux_local.conf`|

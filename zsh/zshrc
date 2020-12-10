@@ -59,6 +59,7 @@ function weather() {
 alias vim="nvim"
 alias ovim="/usr/bin/vim"
 alias src="source ~/.zshrc"
+alias reload="exec zsh -l"
 
 # directories
 alias ls="ls -G"
@@ -107,8 +108,8 @@ for file in ~/.dotfiles/zsh/autoload/*.zsh; do
 done
 
 # Source local changes to zshrc
-if [ -f ~/.zshrc_local ]; then
-  source ~/.zshrc_local
+if [ -f $XDG_CONFIG_HOME/zsh/.zshrc_local ]; then
+  source $XDG_CONFIG_HOME/zsh/.zshrc_local
 fi
 
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh

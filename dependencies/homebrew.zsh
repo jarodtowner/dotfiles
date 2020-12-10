@@ -17,6 +17,7 @@ PACKAGES=(
   "ripgrep"
   "ccls"
   "telnet"
+  "figlet"
 )
 
 for p in $PACKAGES; do
