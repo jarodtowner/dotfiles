@@ -3,6 +3,7 @@
 #
 #   Exports ......................... |exports|
 #   Shell Configuration ............. |shell-config|
+#   Line Editor ..................... |line-editor|
 #   Functions ....................... |functions|
 #   Aliases ......................... |aliases|
 #   Load External Files ............. |external|
@@ -41,7 +42,13 @@ bindkey '\e[B' history-beginning-search-forward
 autoload -Uz compinit && compinit
 setopt autocd
 
-bindkey -e
+# |line-editor|
+
+bindkey -v
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
+
+
 
 # |functions|
 
