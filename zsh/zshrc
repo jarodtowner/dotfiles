@@ -2,6 +2,7 @@
 # Contents
 #
 #   Exports ......................... |exports|
+#   Modules ......................... |modules|
 #   Shell Configuration ............. |shell-config|
 #   Line Editor ..................... |line-editor|
 #   Functions ....................... |functions|
@@ -22,6 +23,16 @@ export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
 export EMPTY_COMMAND='' # If an empty command is entered, this command will be run instead
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
+
+# |modules|
+zmodload zsh/zpty
+zmodload zsh/complete
+zmodload zsh/complist
+zmodload zsh/computil
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:git:*' user-commands fco:'description for foo'
 
 # |shell-config|
 # Enables p10k instant prompt 
@@ -29,10 +40,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
-
-# load modules
-zmodload zsh/zpty
 
 PROMPT_EOL_MARK=''
 PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
@@ -104,6 +111,9 @@ alias -g G="| grep"
 alias -g Ge="| grep -E"
 alias -g H="| head -n"
 alias -g T="| tail -n"
+
+
+
 
 # |external|
 
