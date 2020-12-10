@@ -6,6 +6,9 @@
     $XDG_CONFIG_HOME:
       recursive: true
 
+- create:
+  - ~/.config/git/gitconfig_local
+
 - shell:
   - ['XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}', 'Setting Variables']
   - ['git submodule update --init --recursive', 'Installing submodules']
