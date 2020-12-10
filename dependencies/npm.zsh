@@ -4,6 +4,7 @@ PACKAGES=(
   "ts-node"
   "@types/node"
   "typescript-eslint"
+  "pm2"
 )
 
 for p in $PACKAGES; do
