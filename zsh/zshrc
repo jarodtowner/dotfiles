@@ -1,10 +1,9 @@
-# ==================================================
-# Contents
+# ============ Table of Contents ===================
 #
 #   Exports ......................... |exports|
 #   Modules ......................... |modules|
-#   Shell Configuration ............. |shell-config|
-#   Line Editor ..................... |line-editor|
+#   Options ......................... |options|
+#   Line Editor ..................... |line_editor|
 #   Functions ....................... |functions|
 #   Aliases ......................... |aliases|
 #   Load External Files ............. |external|
@@ -30,32 +29,27 @@ zmodload zsh/zpty
 zmodload zsh/complete
 zmodload zsh/complist
 zmodload zsh/computil
+
+# |options|
+autoload -Uz compinit && compinit
+setopt autocd
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:git:*' user-commands fco:'description for foo'
 
-# |shell-config|
+# |line_editor|
+
 # Enables p10k instant prompt 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-
-PROMPT_EOL_MARK=''
-PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
-
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
-autoload -Uz compinit && compinit
-setopt autocd
-
-# |line-editor|
-
 bindkey -v
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
-
-
+PROMPT_EOL_MARK=''
+PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
 
 # |functions|
 
@@ -65,7 +59,6 @@ function getLine() {
 }
 
 # |aliases| 
-# Commands
 alias py="python3"
 function weather() {
   curl v2.wttr.in/$1
@@ -75,36 +68,32 @@ alias ovim="/usr/bin/vim"
 alias src="source ~/.zshrc"
 alias reload="exec zsh -l"
 
-# directories
 alias ls="ls -G"
 alias la="ls -A"
 alias ll="ls -Al"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-## Spotify
 alias sfy="spotify"
 alias next="spotify next"
 alias prev="spotify prev"
 alias pause="spotify pause"
 alias play="spotify play"
 
-## Terminal tabbing
 alias split="split_tab"
 alias vsplit="vsplit_tab"
 
-## 1password
 alias opg="op get"
 alias opgi="op get item"
 
-# Filetype Aliases
 alias -s txt=vim
+alias -s yaml=vim
+alias -s yml=vim
 alias -s md=vim
 alias -s js=node
 alias -s ts=ts-node
 alias -s py=python3
 
-# Global Aliases
 alias -g L="| less"
 alias -g C="| pbcopy"
 alias -g V="pbpaste"
@@ -128,6 +117,3 @@ if [ -f $XDG_CONFIG_HOME/zsh/.zshrc_local ]; then
 fi
 
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
-
-clear
-

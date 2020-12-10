@@ -1,3 +1,12 @@
+" ==========Table of Contents =============
+" Plugins ................. |plugins|
+" Plugin Configuration .... |plugin_config|
+" Vim Settings ............ |vim_settings|
+" Theme ................... |theme|
+" External Files .......... |external|
+" =========================================
+
+" |plugins|
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -34,7 +43,7 @@ Plug 'haishanh/night-owl.vim'
 
 call plug#end()
 
-" |file-nav|
+" |plugin_config|
 nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -44,54 +53,12 @@ nmap <C-l> :BLines<CR>
 nmap <C-a> <C-b>
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
-" |code-nav|
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Commenting
 let g:NERDSpaceDelims = 1
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" |sessions|
-function! SaveSess()
-  execute '![ -d .vim ] || mkdir .vim'
-  execute 'mks! ./.vim/Last\ Session'
-endfunction
-
-autocmd VimLeave * call SaveSess()
-
-set number relativenumber
-set pyxversion=3
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set cindent
-" always uses spaces instead of tab characters
-set expandtab
-
-" |theme|
-if (has("termguicolors"))
-  set termguicolors
-endif
-" For Neovim 0.1.3 and 0.1.4
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-""""" enable the theme
-syntax enable
-colorscheme dracula
-" To enable the lightline theme
-let g:lightline = { 'colorscheme': 'dracula' }
-
-" |startify|
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_bookmarks = [
@@ -100,11 +67,7 @@ let g:startify_bookmarks = [
   \ {'t': '~/.dotfiles/tmux.conf'}
   \ ]
 let g:startify_session_dir = '.vim'
-
-" |git|
 let g:blamer_enabled = 1
-
-" |code-completion|
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -117,11 +80,44 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css'
   \ ]
-" from readme
-" if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+function! SaveSess()
+  execute '![ -d .vim ] || mkdir .vim'
+  execute 'mks! ./.vim/Last\ Session'
+endfunction
+
+autocmd VimLeave * call SaveSess()
+
+" |vim_settings|
+
+set number relativenumber
+set pyxversion=3
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set cindent
+set expandtab
+set hidden 
 set updatetime=300
 
+" |theme|
+if (has("termguicolors"))
+  set termguicolors
+endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+syntax enable
+colorscheme dracula
+let g:lightline = { 'colorscheme': 'dracula' }
+
+" |external|
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
 if filereadable($LOCALFILE)
     source $LOCALFILE
