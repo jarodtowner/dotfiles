@@ -20,9 +20,9 @@ source ~/.zshrc
 
 Sometimes you may want to have some specific overrides on each machine that you don't want to commit ot the central repo. To do this, you can use local override files which will be loaded at the end of various dotfiles. Below is a list of the currently configured override files: 
 
-| Program | Local Override File |
-| :-----: | :------------------ |
-|   zsh   |   `~/.config/zsh/zshrc_local`  |
-|   git   | `~/.gitconfig_local`|
-|  nvim   |  `~/.nvimrc_local`  |
-|  tmux   | `~/.tmux_local.conf`|
+| Program | Local Override File             |
+| :-----: | :------------------------------ |
+|   zsh   | `~/.config/zsh/zshrc_local`     |
+|   git   | `~/.config/git/gitconfig_local` |
+|  nvim   | `~/.config/nvim/init_local.vim` |
+|  tmux   | `~/.tmux_local.conf`            |
