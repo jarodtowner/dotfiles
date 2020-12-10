@@ -7,6 +7,7 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./dependencies/homebrew.zsh', Installing Homebrew Dependencies]
+  - ['zsh ./dependencies/npm.zsh', 'Installing NPM Packages']
 
 - link:
     ~/.dotfiles: ''
