@@ -4,6 +4,10 @@
     ~/.config:
       recursive: true
 
+- create:
+  - $XDG_CONFIG_HOME/zsh
+  - $XDG_CONFIG_HOME/bash
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./packages/homebrew.zsh', Installing Homebrew Packages]
@@ -22,5 +26,6 @@
       path: nvim/vim-plug/plug.vim
       create: true
     ~/.zshrc: zsh/zshrc
+    ~/.bashrc: bash/bashrc
     ~/.gitconfig: gitconfig
     $XDG_CONFIG_HOME/taskwarrior/taskrc: taskwarriorrc

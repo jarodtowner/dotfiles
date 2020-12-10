@@ -2,8 +2,6 @@
 # Contents
 #
 #   Exports ......................... |exports|
-#   Modules ......................... |modules|
-#   Shell Configuration ............. |shell-config|
 #   Line Editor ..................... |line-editor|
 #   Functions ....................... |functions|
 #   Aliases ......................... |aliases|
@@ -22,40 +20,13 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Hom
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
-export EMPTY_COMMAND='' # If an empty command is entered, this command will be run instead
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
 
-# |modules|
-zmodload zsh/zpty
-zmodload zsh/complete
-zmodload zsh/complist
-zmodload zsh/computil
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*:*:git:*' user-commands fco:'description for foo'
-
-# |shell-config|
-# Enables p10k instant prompt 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
-PROMPT_EOL_MARK=''
-PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
-
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
-autoload -Uz compinit && compinit
-setopt autocd
-
 # |line-editor|
-
-bindkey -v
-bindkey -M viins '^?' backward-delete-char
-bindkey -M viins '^H' backward-delete-char
-
-
+PS1="$ "
+PS2="> "
+PS3="3 "
+PS4="4 "
 
 # |functions|
 
@@ -72,8 +43,7 @@ function weather() {
 }
 alias vim="nvim"
 alias ovim="/usr/bin/vim"
-alias src="source ~/.zshrc"
-alias reload="exec zsh -l"
+alias src="source ~/.bashrc"
 
 # directories
 alias ls="ls -G"
@@ -97,37 +67,15 @@ alias vsplit="vsplit_tab"
 alias opg="op get"
 alias opgi="op get item"
 
-# Filetype Aliases
-alias -s txt=vim
-alias -s md=vim
-alias -s js=node
-alias -s ts=ts-node
-alias -s py=python3
-
-# Global Aliases
-alias -g L="| less"
-alias -g C="| pbcopy"
-alias -g V="pbpaste"
-alias -g H="| head -n"
-alias -g T="| tail -n"
-alias -g F="| ag"
-alias -g Ln="| getLine"
-
 # |external|
 
 # Autoload directory
-for file in ~/.dotfiles/zsh/autoload/*.zsh; do
-	if [ $(echo "$file" | grep -vE ".disable$") ]; then
-		source "$file"
-	fi
+for file in ~/.dotfiles/bash/autoload/*.sh; do
+  source "$file"
 done
 
 # Source local changes to zshrc
-if [ -f $XDG_CONFIG_HOME/zsh/.zshrc_local ]; then
-  source $XDG_CONFIG_HOME/zsh/.zshrc_local
+if [ -f $XDG_CONFIG_HOME/bash/.bash_local ]; then
+  source $XDG_CONFIG_HOME/bash/.bash_local
 fi
-
-[ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
-
-clear
 
