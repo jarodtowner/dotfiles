@@ -10,8 +10,9 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./packages/homebrew.zsh', Installing Homebrew Packages]
-  - ['zsh ./packages/npm.zsh', 'Installing NPM Packages']
+  - ['[[ "$OSTYPE" == "darwin"* ]] && zsh ./packages/homebrew.sh', Installing Homebrew Packages]
+  - ['zsh ./packages/npm.sh', 'Installing NPM Packages']
+  - ['which yum && zsh ./packages/yum.sh', 'Installing yum Packages']
 
 - link:
     ~/.dotfiles: ''
