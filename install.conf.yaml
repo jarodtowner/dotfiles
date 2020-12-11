@@ -38,3 +38,6 @@
     $XDG_CONFIG_HOME/taskwarrior/taskrc:
       path: taskwarrior/taskrc
       create: true
+
+- brew:
+  - figlet

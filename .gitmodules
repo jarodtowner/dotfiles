@@ -20,3 +20,6 @@
 [submodule "dotbot-plugins/dotbot-brew"]
 	path = dotbot-plugins/dotbot-brew
 	url = https://github.com/jarodtowner/dotbot-brew.git
+[submodule "dotbot-brew"]
+	path = dotbot-brew
+	url = https://github.com/jarodtowner/dotbot-brew.git
