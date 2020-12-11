@@ -17,3 +17,6 @@
 [submodule "zsh/autoload/powerlevel10k"]
 	path = zsh/autoload/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
+[submodule "dotbot-plugins/dotbot-brew"]
+	path = dotbot-plugins/dotbot-brew
+	url = https://github.com/jarodtowner/dotbot-brew.git
