@@ -1,9 +1,3 @@
-- defaults:
-    yum:
-      options: "-q -y"
-      stdout: False
-      stderr: True
-
 - clean:
     ~/:
       force: true
@@ -41,12 +35,3 @@
     $XDG_CONFIG_HOME/taskwarrior/taskrc:
       path: taskwarrior/taskrc
       create: true
-
-- yum:
-  - neovim
-  - tmux
-  - cowsay
-  - node
-  - jq
-  - figlet
-  - fortune
