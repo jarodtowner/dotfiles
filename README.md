@@ -1,6 +1,6 @@
 # Dotfiles
 
-Version-controlled configuration files for Personal Computers.
+Version-controlled configuration files for my personal computers.
 
 ## Installation
 
