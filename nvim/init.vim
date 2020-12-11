@@ -42,7 +42,6 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'haishanh/night-owl.vim'
 
 call plug#end()
-
 " |plugin_config|
 nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
@@ -50,7 +49,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <C-p> :Files<CR>
 vmap ga <Plug>(EasyAlign)
 nmap <C-l> :BLines<CR>
-nmap <C-a> <C-b>
+nmap <C-g> <C-b>
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 nmap <silent> gd <Plug>(coc-definition)
