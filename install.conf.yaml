@@ -12,6 +12,8 @@
 - shell:
   - ['XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}', 'Setting Variables']
   - ['git submodule update --init --recursive', 'Installing submodules']
+  - ['which node && zsh ./packages/npm.sh || true', 'Installing NPM Packages']
+  - ['which yum && zsh ./packages/yum.sh || true', 'Installing yum Packages']
 
 - link:
     ~/.dotfiles: ''
@@ -35,3 +37,21 @@
     $XDG_CONFIG_HOME/taskwarrior/taskrc:
       path: taskwarrior/taskrc
       create: true
+
+- brew:
+  - tmux
+  - neovim
+  - the_silver_searcher
+  - node
+  - cowsay
+  - python3
+  - fd
+  - ruby
+  - yarn
+  - jq
+  - ripgrep
+  - ccls
+  - telnet
+  - figlet
+  - ctags
+
