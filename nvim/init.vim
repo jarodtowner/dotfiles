@@ -1,9 +1,11 @@
 " ==========Table of Contents =============
+" 
 " Plugins ................. |plugins|
 " Plugin Configuration .... |plugin_config|
 " Vim Settings ............ |vim_settings|
 " Theme ................... |theme|
 " External Files .......... |external|
+"
 " =========================================
 
 " |plugins|
@@ -50,6 +52,7 @@ nmap <C-p> :Files<CR>
 vmap ga <Plug>(EasyAlign)
 nmap <C-l> :BLines<CR>
 nmap <C-g> <C-b>
+nmap bb :Buffers<CR>
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 nmap <silent> gd <Plug>(coc-definition)
