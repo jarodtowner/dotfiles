@@ -20,6 +20,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'preservim/tagbar'
 
 "Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -53,6 +54,7 @@ vmap ga <Plug>(EasyAlign)
 nmap <C-l> :BLines<CR>
 nmap <C-g> <C-b>
 nmap bb :Buffers<CR>
+nmap T :TagbarToggle<CR>
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 nmap <silent> gd <Plug>(coc-definition)
@@ -82,6 +84,19 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css'
   \ ]
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

@@ -18,6 +18,7 @@ PACKAGES=(
   "ccls"
   "telnet"
   "figlet"
+  "ctags"
 )
 
 for p in $PACKAGES; do
