@@ -13,7 +13,6 @@
   - ['XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}', 'Setting Variables']
   - ['git submodule update --init --recursive', 'Installing submodules']
   - ['which node && zsh ./packages/npm.sh || true', 'Installing NPM Packages']
-  - ['which yum && zsh ./packages/yum.sh || true', 'Installing yum Packages']
 
 - link:
     ~/.dotfiles: ''
@@ -54,4 +53,3 @@
   - telnet
   - figlet
   - ctags
-
