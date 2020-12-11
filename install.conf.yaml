@@ -1,3 +1,9 @@
+- defaults:
+    yum:
+      options: "-q -y"
+      stdout: False
+      stderr: True
+
 - clean:
     ~/:
       force: true
@@ -53,3 +59,12 @@
   - telnet
   - figlet
   - ctags
+
+- yum:
+  - neovim
+  - tmux
+  - cowsay
+  - node
+  - jq
+  - figlet
+  - fortune
