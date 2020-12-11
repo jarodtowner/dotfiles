@@ -23,3 +23,6 @@
 [submodule "dotbot-brew"]
 	path = dotbot-brew
 	url = https://github.com/jarodtowner/dotbot-brew.git
+[submodule "dotbot-yum"]
+	path = dotbot-yum
+	url = https://gitlab.com/flyingchipmunk/dotbot-yum.git
