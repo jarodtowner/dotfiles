@@ -53,8 +53,6 @@ nmap <C-p> :Files<CR>
 vmap ga <Plug>(EasyAlign)
 nmap <C-l> :BLines<CR>
 nmap <C-g> <C-b>
-nmap bb :Buffers<CR>
-nmap T :TagbarToggle<CR>
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 nmap <silent> gd <Plug>(coc-definition)
