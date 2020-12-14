@@ -71,6 +71,7 @@ alias reload="exec zsh -l"
 alias ls="ls -G"
 alias la="ls -A"
 alias ll="ls -Al"
+alias lll="ls -l | awk '{print \$NF}'"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
@@ -101,6 +102,7 @@ alias -g H="| head -n"
 alias -g T="| tail -n"
 alias -g F="| ag"
 alias -g Ln="| getLine"
+alias -g Last="| awk '{print \$NF}'"
 
 # |external|
 

@@ -80,7 +80,8 @@ let g:coc_global_extensions = [
   \ 'coc-vetur',
   \ 'coc-sql',
   \ 'coc-html',
-  \ 'coc-css'
+  \ 'coc-css',
+  \ 'coc-clangd'
   \ ]
 let g:tagbar_type_typescript = {
   \ 'ctagstype': 'typescript',
