@@ -59,6 +59,7 @@
   - telnet
   - figlet
   - ctags
+  - shpotify
 
 - yum:
   - neovim
