@@ -81,7 +81,8 @@ let g:coc_global_extensions = [
   \ 'coc-sql',
   \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-clangd'
+  \ 'coc-clangd',
+  \ 'coc-python'
   \ ]
 let g:tagbar_type_typescript = {
   \ 'ctagstype': 'typescript',

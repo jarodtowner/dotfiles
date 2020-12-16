@@ -43,7 +43,11 @@
       path: taskwarrior/taskrc
       create: true
 
+- tap:
+  - eddieantonio/eddieantonio
+
 - brew:
+  - imgcat
   - tmux
   - neovim
   - the_silver_searcher
