@@ -64,6 +64,7 @@
   - figlet
   - ctags
   - shpotify
+  - awk
 
 - yum:
   - neovim
@@ -73,3 +74,4 @@
   - jq
   - figlet
   - fortune
+  - awk
