@@ -16,7 +16,7 @@ cd dotfiles
 ./install --except yum
 
 # Linux (Using yum)
-./install --except brew
+./install --except brew tap
 ```
 
 ## Local Overriding
