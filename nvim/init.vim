@@ -27,6 +27,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+"SQL
+Plug 'tpope/vim-dadbod'
+
 "Files
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -138,4 +141,9 @@ let g:lightline = { 'colorscheme': 'dracula' }
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
 if filereadable($LOCALFILE)
     source $LOCALFILE
+endif
+
+let $REPOCONFIG=expand('./.vim/init.vim')
+if filereadable($REPOCONFIG)
+  source $REPOCONFIG
 endif
