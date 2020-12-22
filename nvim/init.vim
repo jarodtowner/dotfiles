@@ -2,6 +2,7 @@
 " 
 " Plugins ................. |plugins|
 " Plugin Configuration .... |plugin_config|
+" Custom Functions ........ |functions|
 " Vim Settings ............ |vim_settings|
 " Theme ................... |theme|
 " External Files .......... |external|
@@ -49,21 +50,24 @@ Plug 'haishanh/night-owl.vim'
 
 call plug#end()
 " |plugin_config|
+" Nerd Tree
 nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nmap <C-p> :Files<CR>
-vmap ga <Plug>(EasyAlign)
-nmap <C-l> :BLines<CR>
-nmap <C-g> <C-b>
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" FZF
+nmap <C-p> :Files<CR>
+map <Leader>f :BLines<CR>
+nmap <C-g> <C-b>
+map <Leader>F :Ag<CR>
+
+" Code Formatting
+vmap ga <Plug>(EasyAlign)
 let g:NERDSpaceDelims = 1
+
+" Startify
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_bookmarks = [
@@ -71,8 +75,14 @@ let g:startify_bookmarks = [
   \ {'z': '~/.dotfiles/zsh/zshrc'},
   \ {'t': '~/.dotfiles/tmux.conf'}
   \ ]
-let g:startify_session_dir = '.vim'
+let g:startify_session_dir = '.vim/sess'
 let g:blamer_enabled = 1
+
+" CoC
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -87,6 +97,7 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-python'
   \ ]
+
 let g:tagbar_type_typescript = {
   \ 'ctagstype': 'typescript',
   \ 'kinds': [
@@ -101,6 +112,9 @@ let g:tagbar_type_typescript = {
   \ ]
 \ }
 
+" |functions|
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -111,7 +125,8 @@ endfunction
 
 function! SaveSess()
   execute '![ -d .vim ] || mkdir .vim'
-  execute 'mks! ./.vim/Last\ Session'
+  execute '![ -d .vim/sess ] || mkdir .vim/sess'
+  execute 'mks! ./.vim/sess/Last\ Session'
 endfunction
 
 autocmd VimLeave * call SaveSess()
