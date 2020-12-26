@@ -22,6 +22,7 @@ Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'preservim/tagbar'
+Plug 'easymotion/vim-easymotion'
 
 "Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -46,9 +47,11 @@ Plug 'elzr/vim-json'
 
 "Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 Plug 'haishanh/night-owl.vim'
 
 call plug#end()
+
 " |plugin_config|
 " Nerd Tree
 nmap <C-n> :NERDTreeToggle<CR>
@@ -144,14 +147,10 @@ set hidden
 set updatetime=300
 
 " |theme|
-if (has("termguicolors"))
-  set termguicolors
-endif
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 syntax enable
-colorscheme dracula
-let g:lightline = { 'colorscheme': 'dracula' }
-
+colorscheme night-owl
+let g:lightline = { 'colorscheme': 'nightowl' }
 " |external|
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
 if filereadable($LOCALFILE)

@@ -77,6 +77,7 @@ function weather() {
   curl v2.wttr.in/$1
 }
 alias vim="nvim"
+alias vimm="nvim -M"
 alias ovim="/usr/bin/vim"
 alias src="source ~/.zshrc"
 alias reload="exec zsh -l"
@@ -111,6 +112,7 @@ alias -s py=python3
 
 alias -g L="| less"
 alias -g C="| pbcopy"
+alias -g Cerr="2>&1 > /dev/null | pbcopy"
 alias -g V="pbpaste"
 alias -g H="| head -n"
 alias -g T="| tail -n"
