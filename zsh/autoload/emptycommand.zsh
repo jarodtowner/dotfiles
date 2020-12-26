@@ -8,10 +8,10 @@ preexec() {
 }
 
 precmd() {
-	if [ ! "$cmd"	]; then
-		eval $EMPTY_COMMAND
-	fi
-	cmd=''
+  if [ ! "$cmd"	]; then
+    eval $EMPTY_COMMAND
+  fi
+  cmd=''
   return 0;
 }
 

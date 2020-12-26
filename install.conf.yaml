@@ -65,6 +65,7 @@
   - ctags
   - shpotify
   - awk
+  - lolcat
 
 - yum:
   - neovim
