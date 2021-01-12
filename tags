@@ -1,4 +1,5 @@
 bashrc	bash/bashrc	/*bashrc*
+git	git/gitconfig	/[alias]
 install	install.conf.yaml	/*install*
 neovim	nvim/init.vim	/*vimrc*
 programs	toc.txt	/*programs*

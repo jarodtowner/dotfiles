@@ -16,6 +16,7 @@ Shell Configuration					*shells*
 Program Configuration					*programs*
 
 |neovim| Neo-Vim configuration file
+|git| Git configuration
 |tmuxrc| Tmux configuration file
 |taskwarrior| Configuration file for taskwarrior
 
