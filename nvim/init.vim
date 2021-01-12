@@ -1,11 +1,11 @@
 " ==========Table of Contents =============
 " 
-" Plugins ................. |plugins|
-" Plugin Configuration .... |plugin_config|
-" Custom Functions ........ |functions|
-" Vim Settings ............ |vim_settings|
-" Theme ................... |theme|
-" External Files .......... |external|
+" |plugins| Plugin list
+" |plugin_config| Plugin configuration
+" |functions| Custom functions
+" |vim_settings| Vim Settings
+" |theme| Theme customisation
+" |external| Externally loaded files
 "
 " =========================================
 
