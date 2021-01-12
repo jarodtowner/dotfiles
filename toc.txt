@@ -1,9 +1,23 @@
-tag	Details
+Table of Contents					*toc*
+
+|shells| Zsh & Bash configuration
+|programs| Configuration for programs
+
+|readme| The repository's readme file
 |install| Installation configuration. Includes package dependencies
+
+-----------
+Shell Configuration					*shells*
+
 |zshrc| Zsh Configuration File
 |bashrc| Bash configuration file
-|vimrc| Neo-Vim configuration file
+
+-----------
+Program Configuration					*programs*
+
+|neovim| Neo-Vim configuration file
 |tmuxrc| Tmux configuration file
+|taskwarrior| Configuration file for taskwarrior
 
 /* vim: set filetype=help : */
 

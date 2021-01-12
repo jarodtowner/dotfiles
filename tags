@@ -1,5 +1,10 @@
 bashrc	bash/bashrc	/*bashrc*
 install	install.conf.yaml	/*install*
+neovim	nvim/init.vim	/*vimrc*
+programs	toc.txt	/*programs*
+readme	README.md	/# Dotfiles
+shells	toc.txt	/*shells*
+taskwarrior	taskwarrior/taskrc	/*taskrc*
 tmuxrc	tmux/tmux.conf	/*tmuxrc*
-vimrc	nvim/init.vim	/*vimrc*
+toc	toc.txt	/*toc*
 zshrc	zsh/zshrc	/*zshrc*
