@@ -1,0 +1,7 @@
+aliases	zshrc	/*aliases*
+exports	zshrc	/*exports*
+external	zshrc	/*external*
+functions	zshrc	/*functions*
+line_editor	zshrc	/*line_editor*
+modules	zshrc	/*modules*
+options	zshrc	/*options*

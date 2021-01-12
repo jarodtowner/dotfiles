@@ -1,16 +1,16 @@
 # ============ Table of Contents ===================
 #
-#   Exports ......................... |exports|
-#   Modules ......................... |modules|
-#   Options ......................... |options|
-#   Line Editor ..................... |line_editor|
-#   Functions ....................... |functions|
-#   Aliases ......................... |aliases|
-#   Load External Files ............. |external|
+#|exports| Exported Variables
+#|modules| Modules
+#|options| Set Options
+#|line_editor| Settings for the line editor
+#|functions| Custom functions
+#|aliases| Command aliases
+#|external| Externally loaded files
 #
 # ==================================================
 
-# |exports|
+# *exports*
 # XDG Standards
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -23,21 +23,22 @@ export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
 export EMPTY_COMMAND='' # If an empty command is entered, this command will be run instead
 export PATH=/usr/local/bin:/sbin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
+export TASKDDATA=/Users/jarod/.local/share/taskd
 
-# |modules|
+# *modules*
 zmodload zsh/zpty
 zmodload zsh/complete
 zmodload zsh/complist
 zmodload zsh/computil
 
-# |options|
+# *options*
 autoload -Uz compinit && compinit
 setopt autocd
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:git:*' user-commands fco:'description for foo'
 
-# |line_editor|
+# *line_editor*
 
 # Enables p10k instant prompt 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -51,11 +52,15 @@ PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 
-# |functions|
+# *functions*
 
 # Get one specific line of stdin
 function getLine() {
   head -n $1 | tail -n 1
+}
+
+function dev-tmux() {
+  tmux new-session -s $1 \; rename-window 'server' \; new-window \; rename-window 'editor' \; new-window \; rename-window 'tunnel' \; attach
 }
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -71,7 +76,7 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# |aliases| 
+# *aliases* 
 alias py="python3"
 function weather() {
   curl v2.wttr.in/$1
@@ -81,7 +86,6 @@ alias vimm="nvim -M"
 alias ovim="/usr/bin/vim"
 alias src="source ~/.zshrc"
 alias reload="exec zsh -l"
-alias notes="vim ~/Documents/notes"
 
 alias ls="ls -G"
 alias la="ls -A"
@@ -120,7 +124,7 @@ alias -g F="| ag"
 alias -g Ln="| getLine"
 alias -g Last="| awk '{print \$NF}'"
 
-# |external|
+# *external*
 
 # Autoload directory
 for file in ~/.dotfiles/zsh/autoload/*.zsh; do

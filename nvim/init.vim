@@ -9,7 +9,7 @@
 "
 " =========================================
 
-" |plugins|
+" *plugins*
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -52,7 +52,7 @@ Plug 'haishanh/night-owl.vim'
 
 call plug#end()
 
-" |plugin_config|
+" *plugin_config*
 " Nerd Tree
 nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
@@ -115,7 +115,7 @@ let g:tagbar_type_typescript = {
   \ ]
 \ }
 
-" |functions|
+" *functions*
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -134,7 +134,7 @@ endfunction
 
 autocmd VimLeave * call SaveSess()
 
-" |vim_settings|
+" *vim_settings*
 
 set number relativenumber
 set pyxversion=3
@@ -146,12 +146,12 @@ set expandtab
 set hidden 
 set updatetime=300
 
-" |theme|
+" *theme*
 set termguicolors
 syntax enable
 colorscheme night-owl
 let g:lightline = { 'colorscheme': 'nightowl' }
-" |external|
+" *external*
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
 if filereadable($LOCALFILE)
     source $LOCALFILE
