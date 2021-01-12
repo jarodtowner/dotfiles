@@ -1,0 +1,5 @@
+bashrc	bash/bashrc	/*bashrc*
+install	install.conf.yaml	/*install*
+tmuxrc	tmux/tmux.conf	/*tmuxrc*
+vimrc	nvim/init.vim	/*vimrc*
+zshrc	zsh/zshrc	/*zshrc*

@@ -1,12 +1,9 @@
-# ================= Contents =======================
-#
-#   Exports ......................... |exports|
-#   Line Editor ..................... |line-editor|
-#   Functions ....................... |functions|
-#   Aliases ......................... |aliases|
-#   Load External Files ............. |external|
-#
-# ==================================================
+# *bashrc*
+#|exports|
+#|line-editor|
+#|functions|
+#|aliases|
+#|external|
 
 # |exports|
 # XDG Standards

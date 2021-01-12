@@ -1,0 +1,9 @@
+tag	Details
+|install| Installation configuration. Includes package dependencies
+|zshrc| Zsh Configuration File
+|bashrc| Bash configuration file
+|vimrc| Neo-Vim configuration file
+|tmuxrc| Tmux configuration file
+
+/* vim: set filetype=help : */
+

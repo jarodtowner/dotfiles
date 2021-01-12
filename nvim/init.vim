@@ -1,13 +1,11 @@
-" ==========Table of Contents =============
-" 
+" *vimrc*
+" == Table of Contents == 
 " |plugins| Plugin list
 " |plugin_config| Plugin configuration
 " |functions| Custom functions
 " |vim_settings| Vim Settings
 " |theme| Theme customisation
 " |external| Externally loaded files
-"
-" =========================================
 
 " *plugins*
 call plug#begin('~/.vim/plugged')

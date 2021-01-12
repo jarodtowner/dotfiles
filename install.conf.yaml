@@ -1,3 +1,4 @@
+# *install*
 - defaults:
     yum:
       options: "-q -y"
