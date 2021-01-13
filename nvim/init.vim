@@ -63,6 +63,7 @@ nmap <C-p> :Files<CR>
 map <Leader>f :BLines<CR>
 nmap <C-g> <C-b>
 map <Leader>F :Ag<CR>
+let g:fzf_layout = { 'down': '40%' }
 
 " Code Formatting
 vmap ga <Plug>(EasyAlign)
