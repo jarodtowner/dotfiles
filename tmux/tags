@@ -1,4 +1,0 @@
-external	tmux.conf	/*external*
-keys	tmux.conf	/*keys*
-plugins	tmux.conf	/*plugins*
-theme	tmux.conf	/*theme*
