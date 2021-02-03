@@ -21,6 +21,7 @@ export COWPATH=/usr/local/share/cows:$XDG_DATA_HOME/cows
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export TASKRC=$XDG_CONFIG_HOME/taskwarrior/taskrc
+export TIMERC=$XDG_CONFIG_HOME/timewarrior/timerc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
 export EMPTY_COMMAND='' # If an empty command is entered, this command will be run instead
 export PATH=/usr/local/bin:/sbin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
@@ -87,6 +88,7 @@ alias vimm="nvim -M"
 alias ovim="/usr/bin/vim"
 alias src="source ~/.zshrc"
 alias reload="exec zsh -l"
+alias run="scripts"
 
 alias ls="ls -G"
 alias la="ls -A"
