@@ -19,3 +19,9 @@
   helper = store
 [include]
   path = ~/.config/git/gitconfig_local
+[difftool]
+  prompt = true
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -Md \"$LOCAL\" \"$REMOTE\""
