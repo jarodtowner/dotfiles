@@ -3,10 +3,14 @@
 :PlugDiff	nvim/vim-plug/doc/plug.txt	/*:PlugDiff*
 :PlugInstall	nvim/vim-plug/doc/plug.txt	/*:PlugInstall*
 :PlugStatus	nvim/vim-plug/doc/plug.txt	/*:PlugStatus*
+aliases	zsh/zshrc	/*aliases*
 bashrc	bash/bashrc	/*bashrc*
+exports	zsh/zshrc	/*exports*
 external	nvim/init.vim	/*external*
 external	tmux/tmux.conf	/*external*
+external	zsh/zshrc	/*external*
 functions	nvim/init.vim	/*functions*
+functions	zsh/zshrc	/*functions*
 g:fzf_install	nvim/vim-plug/doc/plug.txt	/*g:fzf_install*
 g:plug_pwindow	nvim/vim-plug/doc/plug.txt	/*g:plug_pwindow*
 g:plug_retries	nvim/vim-plug/doc/plug.txt	/*g:plug_retries*
@@ -18,7 +22,10 @@ g:plug_window	nvim/vim-plug/doc/plug.txt	/*g:plug_window*
 git	git/gitconfig	/[alias]
 install	install.conf.yaml	/*install*
 keys	tmux/tmux.conf	/*keys*
+line_editor	zsh/zshrc	/*line_editor*
+modules	zsh/zshrc	/*modules*
 neovim	nvim/init.vim	/*vimrc*
+options	zsh/zshrc	/*options*
 plug	nvim/vim-plug/doc/plug.txt	/*plug*
 plug#begin	nvim/vim-plug/doc/plug.txt	/*plug#begin*
 plug#end	nvim/vim-plug/doc/plug.txt	/*plug#end*
