@@ -139,3 +139,11 @@ color.undo.before=red
 
 
 urgency.user.tag.later.coefficient=-6.0
+
+# Taskserver Configuration
+taskd.certificate=/Users/jarod/.task\/JAROD.cert.pem
+taskd.key=/Users/jarod/.task/JAROD.key.pem
+taskd.ca=/Users/jarod/.task/ca.cert.pem
+taskd.server=localhost:53589 # Use a tunnel
+taskd.credentials=GROUP/JAROD/be2df1df-37c8-4bd4-aa27-75942159447b
+taskd.trust=ignore hostname
