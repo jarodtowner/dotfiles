@@ -1,7 +1,7 @@
 function scripts() {
   OPTIONS=""
   if [ -f Makefile ]; then
-    for f in $(cat Makefile | grep -e "^[a-zA-Z0-9]*:" | sed "s/:.*//g"); do
+    for f in $(cat Makefile | grep -e "^[a-zA-Z0-9-]*:" | sed "s/:.*//g"); do
       OPTIONS="${OPTIONS}make ${f}\n"
     done
   fi
