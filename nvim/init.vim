@@ -18,9 +18,7 @@ Plug 'APZelos/blamer.nvim'
 Plug 'preservim/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/vim-easy-align'
 Plug 'preservim/tagbar'
-Plug 'easymotion/vim-easymotion'
 
 "Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -58,6 +56,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 
+" DadBod
+" Run currently highlighted sql with :DB
+vmap <Leader>db y<ESC>:DB <C-r>0<CR>
+
+
 " FZF
 nmap <C-p> :Files<CR>
 map <Leader>f :BLines<CR>
@@ -68,6 +71,7 @@ let g:fzf_layout = { 'down': '40%' }
 " Code Formatting
 vmap ga <Plug>(EasyAlign)
 let g:NERDSpaceDelims = 1
+let g:yats_host_keyword = 1
 
 " Startify
 let g:startify_change_to_vcs_root = 1
@@ -144,6 +148,7 @@ set cindent
 set expandtab
 set hidden 
 set updatetime=300
+set mouse=a
 
 " *theme*
 set termguicolors
