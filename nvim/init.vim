@@ -16,7 +16,7 @@ Plug 'eslint/eslint'
 Plug 'mattn/emmet-vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'preservim/nerdcommenter'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/tagbar'
 

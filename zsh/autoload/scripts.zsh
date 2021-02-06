@@ -19,7 +19,13 @@ function scripts() {
       done
     fi
   fi
-  SCRIPT=$(echo $OPTIONS | grep -ve "^$" | fzf)
+
+  if [ $1 ]; then
+    SCRIPT=$(echo $OPTIONS | grep -ve "^$" | fzf -1 --query $1)
+  else
+    SCRIPT=$(echo $OPTIONS | grep -ve "^$" | fzf)
+  fi
+
   if [ $SCRIPT ]; then
     echo "> $SCRIPT"
     print -s $SCRIPT
