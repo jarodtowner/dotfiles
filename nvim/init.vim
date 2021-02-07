@@ -91,6 +91,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-word',
+  \ 'coc-tag',
+  \ 'coc-emoji',
   \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint', 

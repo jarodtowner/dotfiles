@@ -1,10 +1,10 @@
-# Dotfiles
+# Dotfiles 📁
 
 Version-controlled configuration files for my personal computers.
 
 There is a vim-friendly Table of Contents in (|toc|)[./toc.txt]. It uses vim tags.
 
-## Installation
+## Installation ⬇
 
 There are slightly different install steps for MacOS & Linux.
 
