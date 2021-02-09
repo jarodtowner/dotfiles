@@ -16,7 +16,6 @@ Plug 'eslint/eslint'
 Plug 'mattn/emmet-vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'preservim/nerdcommenter'
-" Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/tagbar'
 
@@ -24,9 +23,6 @@ Plug 'preservim/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-"SQL
-Plug 'tpope/vim-dadbod'
 
 "Files
 Plug 'scrooloose/nerdtree'
@@ -40,11 +36,17 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
 Plug 'elzr/vim-json'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 "Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'haishanh/night-owl.vim'
+
+" Fuzzy Finding
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -138,7 +140,17 @@ function! SaveSess()
   execute 'mks! ./.vim/sess/Last\ Session'
 endfunction
 
-autocmd VimLeave * call SaveSess()
+function! Zen()
+  set nu!
+  set rnu!
+  GitGutterDisable
+endfunction
+
+function! Unzen()
+  set nu
+  set rnu
+  GitGutterEnable
+endfunction
 
 " *vim_settings*
 
@@ -151,13 +163,30 @@ set cindent
 set expandtab
 set hidden 
 set updatetime=300
-set mouse=a
 
 " *theme*
 set termguicolors
 syntax enable
 colorscheme night-owl
-let g:lightline = { 'colorscheme': 'nightowl' }
+" let g:lightline = { 'colorscheme': 'nightowl' }
+let g:lightline = {
+    \   'colorscheme': 'nightowl',
+    \   'active': {
+    \     'left': [
+    \               [ 'mode', 'paste' ],
+    \               [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+    \             ],
+    \     'right': [
+    \               [ 'percent' ],
+    \               [ 'lineinfo' ],
+    \               [ 'fileencoding', 'filetype' ]
+    \              ]
+    \   },
+    \   'component_function': {
+    \     'gitbranch': 'FugitiveHead'
+    \   },
+    \ }
+
 " *external*
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
 if filereadable($LOCALFILE)
