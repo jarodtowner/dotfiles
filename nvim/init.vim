@@ -174,7 +174,7 @@ let g:lightline = {
     \   'active': {
     \     'left': [
     \               [ 'mode', 'paste' ],
-    \               [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+    \               [ 'gitbranch', 'readonly', 'filename' ]
     \             ],
     \     'right': [
     \               [ 'percent' ],
@@ -183,9 +183,17 @@ let g:lightline = {
     \              ]
     \   },
     \   'component_function': {
-    \     'gitbranch': 'FugitiveHead'
+    \     'gitbranch': 'FugitiveHead',
+    \     'filename': 'LightlineFilename'
     \   },
     \ }
+
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
+
 
 " *external*
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
