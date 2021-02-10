@@ -67,6 +67,7 @@
   - shpotify
   - awk
   - lolcat
+  - ctags
 
 - yum:
   - neovim
@@ -77,3 +78,4 @@
   - figlet
   - fortune
   - awk
+  - ctags
