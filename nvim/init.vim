@@ -10,43 +10,38 @@
 " *plugins*
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons'
-Plug 'eslint/eslint'
 Plug 'mattn/emmet-vim'
-Plug 'APZelos/blamer.nvim'
 Plug 'preservim/nerdcommenter'
-Plug 'itchyny/lightline.vim'
 Plug 'preservim/tagbar'
 
-"Git
+" Git
+Plug 'APZelos/blamer.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-"Files
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+ 
+" File Management
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-"Syntax Highlighting
+" Syntax & Completion
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
 Plug 'elzr/vim-json'
+Plug 'eslint/eslint'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'othree/html5.vim'
+Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
 
-"Themes
+" Theming
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
 Plug 'haishanh/night-owl.vim'
-
-" Fuzzy Finding
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
