@@ -1,13 +1,12 @@
-" *vimrc*
-" == Table of Contents == 
-" |plugins| Plugin list
-" |plugin_config| Plugin configuration
-" |functions| Custom functions
-" |vim_settings| Vim Settings
-" |theme| Theme customisation
-" |external| Externally loaded files
+" Table of Contents			*vimrc*
+"	plugins
+"		plugin_config
+"	vim_settings
+"		keymap
+"	functions
+"	external
 
-" *plugins*
+"{{{ Plugins			*plugins*
 call plug#begin('~/.vim/plugged')
 
 Plug 'mattn/emmet-vim'
@@ -45,7 +44,7 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-" *plugin_config*
+"{{{ Plugin Configuration			*plugin_config*
 " Nerd Tree
 nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
@@ -57,16 +56,31 @@ autocmd FileType nerdtree setlocal relativenumber
 " Run currently highlighted sql with :DB
 vmap <Leader>db y<ESC>:DB <C-r>0<CR>
 
+" lightline
+let g:lightline = {
+    \   'colorscheme': 'nightowl',
+    \   'active': {
+    \     'left': [
+    \               [ 'mode', 'paste' ],
+    \               [ 'gitbranch', 'readonly', 'filename' ]
+    \             ],
+    \     'right': [
+    \               [ 'percent' ],
+    \               [ 'lineinfo' ],
+    \               [ 'fileencoding', 'filetype' ]
+    \              ]
+    \   },
+    \   'component_function': {
+    \     'gitbranch': 'FugitiveHead',
+    \     'filename': 'LightlineFilename'
+    \   },
+    \ }
+
 
 " FZF
-nmap <C-p> :Files<CR>
-map <Leader>f :BLines<CR>
-nmap <C-g> <C-b>
-map <Leader>F :Ag<CR>
 let g:fzf_layout = { 'down': '40%' }
 
 " Code Formatting
-vmap ga <Plug>(EasyAlign)
 let g:NERDSpaceDelims = 1
 let g:yats_host_keyword = 1
 
@@ -82,10 +96,6 @@ let g:startify_session_dir = '.vim/sess'
 let g:blamer_enabled = 1
 
 " CoC
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-word',
@@ -118,8 +128,41 @@ let g:tagbar_type_typescript = {
   \ ]
 \ }
 
-" *functions*
+"}}}
+"}}}
+
+"{{{ Settings			*vim_settings*
+set number
+set relativenumber
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set cindent
+set expandtab
+set pyxversion=3
+set hidden 
+set updatetime=300
+set termguicolors
+set cursorline
+set listchars=tab:▸\ ,nbsp:_
+set list
+syntax enable
+colorscheme night-owl
+
+"{{{ Key Remaps			*keymap*
+map <Leader>F :Ag<CR>
+map <Leader>f :BLines<CR>
+nmap <C-g> <C-b>
+nmap <C-p> :Files<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+"}}}
+"}}}
+
+"{{{ Functions			*functions*
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -127,6 +170,12 @@ function! s:show_documentation()
   else
     call CocAction('doHover')
   endif
+endfunction
+
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
 endfunction
 
 function! SaveSess()
@@ -146,51 +195,9 @@ function! Unzen()
   set rnu
   GitGutterEnable
 endfunction
+"}}}
 
-" *vim_settings*
-
-set number relativenumber
-set pyxversion=3
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set cindent
-set expandtab
-set hidden 
-set updatetime=300
-
-" *theme*
-set termguicolors
-syntax enable
-colorscheme night-owl
-" let g:lightline = { 'colorscheme': 'nightowl' }
-let g:lightline = {
-    \   'colorscheme': 'nightowl',
-    \   'active': {
-    \     'left': [
-    \               [ 'mode', 'paste' ],
-    \               [ 'gitbranch', 'readonly', 'filename' ]
-    \             ],
-    \     'right': [
-    \               [ 'percent' ],
-    \               [ 'lineinfo' ],
-    \               [ 'fileencoding', 'filetype' ]
-    \              ]
-    \   },
-    \   'component_function': {
-    \     'gitbranch': 'FugitiveHead',
-    \     'filename': 'LightlineFilename'
-    \   },
-    \ }
-
-function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
-endfunction
-
-
-" *external*
+"{{{ External Files			*external*
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
 if filereadable($LOCALFILE)
     source $LOCALFILE
@@ -200,3 +207,6 @@ let $REPOCONFIG=expand('./.vim/init.vim')
 if filereadable($REPOCONFIG)
   source $REPOCONFIG
 endif
+"}}}
+
+"/* vim: set foldmethod=marker: */

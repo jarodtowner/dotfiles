@@ -21,6 +21,7 @@ g:plug_url_format	nvim/vim-plug/doc/plug.txt	/*g:plug_url_format*
 g:plug_window	nvim/vim-plug/doc/plug.txt	/*g:plug_window*
 git	git/gitconfig	/[alias]
 install	install.conf.yaml	/*install*
+keymap	nvim/init.vim	/*keymap*
 keys	tmux/tmux.conf	/*keys*
 line_editor	zsh/zshrc	/*line_editor*
 modules	zsh/zshrc	/*modules*
