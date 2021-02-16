@@ -6,8 +6,6 @@ There is a vim-friendly Table of Contents in (|toc|)[./toc.txt]. It uses vim tag
 
 ## Installation ⬇
 
-There are slightly different install steps for MacOS & Linux.
-
 ```zsh
 # Download the repo
 
@@ -15,10 +13,7 @@ git clone https://github.com/jarodtowner/dotfiles
 cd dotfiles
 
 # MacOS
-./install --except yum
-
-# Linux (Using yum)
-./install --except brew tap
+make macos
 ```
 
 ## Local Overriding
