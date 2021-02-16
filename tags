@@ -5,6 +5,7 @@
 :PlugStatus	nvim/vim-plug/doc/plug.txt	/*:PlugStatus*
 aliases	zsh/zshrc	/*aliases*
 bashrc	bash/bashrc	/*bashrc*
+colours	tmux/tmux.conf	/*colours*
 exports	zsh/zshrc	/*exports*
 external	nvim/init.vim	/*external*
 external	tmux/tmux.conf	/*external*
@@ -21,8 +22,8 @@ g:plug_url_format	nvim/vim-plug/doc/plug.txt	/*g:plug_url_format*
 g:plug_window	nvim/vim-plug/doc/plug.txt	/*g:plug_window*
 git	git/gitconfig	/[alias]
 install	install.conf.yaml	/*install*
+keybind	tmux/tmux.conf	/*keybind*
 keymap	nvim/init.vim	/*keymap*
-keys	tmux/tmux.conf	/*keys*
 line_editor	zsh/zshrc	/*line_editor*
 modules	zsh/zshrc	/*modules*
 neovim	nvim/init.vim	/*vimrc*
@@ -49,16 +50,15 @@ plug-usage	nvim/vim-plug/doc/plug.txt	/*plug-usage*
 plug-vim	nvim/vim-plug/doc/plug.txt	/*plug-vim*
 plugin_config	nvim/init.vim	/*plugin_config*
 plugins	nvim/init.vim	/*plugins*
-plugins	tmux/tmux.conf	/*plugins*
 pluginstall-and-plugupdate	nvim/vim-plug/doc/plug.txt	/*pluginstall-and-plugupdate*
 programs	toc.txt	/*programs*
 readme	README.md	/# Dotfiles
+settings	tmux/tmux.conf	/*settings*
 shells	toc.txt	/*shells*
 taskwarrior	taskwarrior/taskrc	/*taskrc*
 theme	nvim/init.vim	/*theme*
-theme	tmux/tmux.conf	/*theme*
-tmuxrc	tmux/tmux.conf	/*tmuxrc*
 toc	toc.txt	/*toc*
+variables	tmux/tmux.conf	/*variables*
 vim-plug	nvim/vim-plug/doc/plug.txt	/*vim-plug*
 vim_settings	nvim/init.vim	/*vim_settings*
 zshrc	zsh/zshrc	/*zshrc*

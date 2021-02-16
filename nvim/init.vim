@@ -46,15 +46,9 @@ call plug#end()
 
 "{{{ Plugin Configuration			*plugin_config*
 " Nerd Tree
-nmap <C-n> :NERDTreeToggle<CR>
-nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
-
-" DadBod
-" Run currently highlighted sql with :DB
-vmap <Leader>db y<ESC>:DB <C-r>0<CR>
 
 " lightline
 let g:lightline = {
@@ -97,21 +91,21 @@ let g:blamer_enabled = 1
 
 " CoC
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-word',
-  \ 'coc-tag',
-  \ 'coc-emoji',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-json', 
   \ 'coc-angular',
-  \ 'coc-vetur',
-  \ 'coc-sql',
-  \ 'coc-html',
-  \ 'coc-css',
   \ 'coc-clangd',
-  \ 'coc-python'
+  \ 'coc-css',
+  \ 'coc-emoji',
+  \ 'coc-eslint', 
+  \ 'coc-html',
+  \ 'coc-json', 
+  \ 'coc-prettier',
+  \ 'coc-python',
+  \ 'coc-snippets',
+  \ 'coc-sql',
+  \ 'coc-tag',
+  \ 'coc-tsserver',
+  \ 'coc-vetur',
+  \ 'coc-word'
   \ ]
 
 let g:tagbar_type_typescript = {
@@ -132,32 +126,34 @@ let g:tagbar_type_typescript = {
 "}}}
 
 "{{{ Settings			*vim_settings*
+colorscheme night-owl
+set cindent
+set cursorline
+set expandtab
+set hidden 
+set list
+set listchars=tab:▸\ ,nbsp:_
 set number
+set pyxversion=3
 set relativenumber
-set tabstop=2
 set shiftwidth=2
 set smarttab
-set cindent
-set expandtab
-set pyxversion=3
-set hidden 
-set updatetime=300
+set tabstop=2
 set termguicolors
-set cursorline
-set listchars=tab:▸\ ,nbsp:_
-set list
+set updatetime=300
 syntax enable
-colorscheme night-owl
 
 "{{{ Key Remaps			*keymap*
 map <Leader>F :Ag<CR>
 map <Leader>f :BLines<CR>
 nmap <C-g> <C-b>
+nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-p> :Files<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 "}}}
 "}}}
