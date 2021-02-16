@@ -15,7 +15,6 @@ Plug 'preservim/tagbar'
 
 " Git
 Plug 'APZelos/blamer.nvim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
  
@@ -23,8 +22,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Syntax & Completion
 Plug 'HerringtonDarkholme/yats.vim'
