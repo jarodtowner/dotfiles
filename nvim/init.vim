@@ -9,9 +9,8 @@
 "{{{ Plugins			*plugins*
 call plug#begin('~/.vim/plugged')
 
-Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/tagbar'
+Plug 'tpope/vim-commentary'
 
 " Git
 Plug 'APZelos/blamer.nvim'
@@ -42,10 +41,6 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 "{{{ Plugin Configuration			*plugin_config*
-" Nerd Tree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowLineNumbers=1
-autocmd FileType nerdtree setlocal relativenumber
 
 " lightline
 let g:lightline = {
@@ -72,19 +67,7 @@ let g:lightline = {
 let g:fzf_layout = { 'down': '40%' }
 
 " Code Formatting
-let g:NERDSpaceDelims = 1
 let g:yats_host_keyword = 1
-
-" Startify
-let g:startify_change_to_vcs_root = 1
-let g:startify_fortune_use_unicode = 1
-let g:startify_bookmarks = [
-  \ {'v': '~/.dotfiles/nvim/init.vim'},
-  \ {'z': '~/.dotfiles/zsh/zshrc'},
-  \ {'t': '~/.dotfiles/tmux.conf'}
-  \ ]
-let g:startify_session_dir = '.vim/sess'
-let g:blamer_enabled = 1
 
 " CoC
 let g:coc_global_extensions = [
@@ -104,20 +87,6 @@ let g:coc_global_extensions = [
   \ 'coc-vetur',
   \ 'coc-word'
   \ ]
-
-let g:tagbar_type_typescript = {
-  \ 'ctagstype': 'typescript',
-  \ 'kinds': [
-    \ 'c:classes',
-    \ 'n:modules',
-    \ 'f:functions',
-    \ 'v:variables',
-    \ 'v:varlambdas',
-    \ 'm:members',
-    \ 'i:interfaces',
-    \ 'e:enums',
-  \ ]
-\ }
 
 "}}}
 "}}}
@@ -141,17 +110,16 @@ set updatetime=300
 syntax enable
 
 "{{{ Key Remaps			*keymap*
+
 map <Leader>F :Ag<CR>
 map <Leader>f :BLines<CR>
-nmap <C-g> <C-b>
-nmap <C-n> :NERDTreeToggle<CR>
-nmap <C-p> :Files<CR>
+nmap <silent> <C-p> :Files<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 "}}}
 "}}}
 
@@ -171,23 +139,6 @@ function! LightlineFilename()
   return filename . modified
 endfunction
 
-function! SaveSess()
-  execute '![ -d .vim ] || mkdir .vim'
-  execute '![ -d .vim/sess ] || mkdir .vim/sess'
-  execute 'mks! ./.vim/sess/Last\ Session'
-endfunction
-
-function! Zen()
-  set nu!
-  set rnu!
-  GitGutterDisable
-endfunction
-
-function! Unzen()
-  set nu
-  set rnu
-  GitGutterEnable
-endfunction
 "}}}
 
 "{{{ External Files			*external*
