@@ -13,7 +13,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-commentary'
 
 " Git
-Plug 'APZelos/blamer.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
  
@@ -94,14 +93,14 @@ let g:coc_global_extensions = [
 "{{{ Settings			*vim_settings*
 colorscheme night-owl
 set cindent
-set cursorline
-set expandtab
+set cursorline 
+set expandtab 
 set hidden 
 set list
-set listchars=tab:▸\ ,nbsp:_
-set number
+set listchars=tab:▸\ ,nbsp:_ 
+set number 
 set pyxversion=3
-set relativenumber
+set relativenumber 
 set shiftwidth=2
 set smarttab
 set tabstop=2
