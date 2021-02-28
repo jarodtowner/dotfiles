@@ -30,6 +30,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Theming
 Plug 'dracula/vim', { 'as': 'dracula' }
