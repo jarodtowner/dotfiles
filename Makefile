@@ -55,6 +55,11 @@ homebrew: install-brew
 	brew list ctags > /dev/null || brew install ctags
 	brew list youtube-dl > /dev/null || brew install youtube-dl
 
+apt:
+	apt-get install silversearcher-ag
+	apt-get install awk
+	apt-get install neovim
+
 install-brew:
 	which brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
