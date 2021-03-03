@@ -21,9 +21,6 @@ links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig ~/.ideavimrc $(XDG_CONFIG_HO
 $(XDG_CONFIG_HOME)/nvim/init.vim: nvim/init.vim
 	ln -s $(PWD)/$< $@
 
-~/.ideavimrc: nvim/init.vim
-	ln -s $(PWD)/$< $@
-
 $(XDG_CONFIG_HOME)/nvim/coc-settings.json: nvim/coc-settings.json
 	ln -s $(PWD)/$< $@
 
