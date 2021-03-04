@@ -3,6 +3,7 @@
 "		plugin_config
 "	vim_settings
 "		keymap
+"		filetype_settings
 "	functions
 "	external
 
@@ -69,6 +70,7 @@ let g:fzf_layout = { 'down': '40%' }
 " Code Formatting
 let g:yats_host_keyword = 1
 
+
 " CoC
 let g:coc_global_extensions = [
   \ 'coc-angular',
@@ -92,6 +94,7 @@ let g:coc_global_extensions = [
 "}}}
 
 "{{{ Settings			*vim_settings*
+
 colorscheme night-owl
 set cindent
 set cursorline 
@@ -99,6 +102,7 @@ set expandtab
 set hidden 
 set list
 set listchars=tab:▸\ ,nbsp:_ 
+set nohlsearch
 set number 
 set pyxversion=3
 set relativenumber 
@@ -108,6 +112,13 @@ set tabstop=2
 set termguicolors
 set updatetime=300
 syntax enable
+
+"{{{ Filetype Settings			*filetype_settings*
+"
+" sql
+autocmd FileType sql setlocal commentstring=--\ %s
+
+"}}}
 
 "{{{ Key Remaps			*keymap*
 

@@ -10,6 +10,7 @@ exports	zsh/zshrc	/*exports*
 external	nvim/init.vim	/*external*
 external	tmux/tmux.conf	/*external*
 external	zsh/zshrc	/*external*
+filetype_settings	nvim/init.vim	/*filetype_settings*
 functions	nvim/init.vim	/*functions*
 functions	zsh/zshrc	/*functions*
 g:fzf_install	nvim/vim-plug/doc/plug.txt	/*g:fzf_install*
