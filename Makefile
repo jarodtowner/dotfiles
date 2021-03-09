@@ -3,7 +3,7 @@ macos: common homebrew
 common: links
 	which node && zsh ./packages/npm.sh || true
 
-links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig ~/.ideavimrc $(XDG_CONFIG_HOME)/nvim/init.vim $(XDG_CONFIG_HOME)/nvim/coc-settings.json $(XDG_CONFIG_HOME)/nvim/site/autoload/plug.vim $(XDG_CONFIG_HOME)/taskwarrior/taskrc 
+links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig $(XDG_CONFIG_HOME)/nvim/init.vim $(XDG_CONFIG_HOME)/nvim/coc-settings.json $(XDG_CONFIG_HOME)/nvim/site/autoload/plug.vim $(XDG_CONFIG_HOME)/taskwarrior/taskrc 
 
 ~/.zshrc: zsh/zshrc
 	ln -s $(PWD)/$< $@
