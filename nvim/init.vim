@@ -111,6 +111,8 @@ set smarttab
 set tabstop=2
 set termguicolors
 set updatetime=300
+filetype on
+filetype plugin on
 syntax enable
 
 "{{{ Filetype Settings			*filetype_settings*

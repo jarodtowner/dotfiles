@@ -1,36 +1,48 @@
-macos: common homebrew
+macos: submodules $(XDG_CONFIG_HOME) links node
 
-common: links
+$(XDG_CONFIG_HOME): 
+	mkdir $(XDG_CONFIG_HOME)
+
+submodules:
+	git submodule update --init
+
+node: homebrew
 	which node && zsh ./packages/npm.sh || true
 
 links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig $(XDG_CONFIG_HOME)/nvim/init.vim $(XDG_CONFIG_HOME)/nvim/coc-settings.json $(XDG_CONFIG_HOME)/nvim/site/autoload/plug.vim $(XDG_CONFIG_HOME)/taskwarrior/taskrc 
 
-~/.zshrc: zsh/zshrc
+~/.zshrc: zsh/zshrc 
 	ln -s $(PWD)/$< $@
 	source $<
 
-~/.tmux.conf: tmux/tmux.conf
+~/.tmux.conf: tmux/tmux.conf 
 	ln -s $(PWD)/$< $@
 
-~/.bashrc: bash/bashrc
+~/.bashrc: bash/bashrc 
 	ln -s $(PWD)/$< $@
 
 ~/.gitconfig: git/gitconfig
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/nvim/init.vim: nvim/init.vim
+$(XDG_CONFIG_HOME)/nvim: $(XDG_CONFIG_HOME)
+	mkdir $(XDG_CONFIG_HOME)/nvim
+
+$(XDG_CONFIG_HOME)/nvim/init.vim: nvim/init.vim $(XDG_CONFIG_HOME)/nvim
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/nvim/coc-settings.json: nvim/coc-settings.json
+$(XDG_CONFIG_HOME)/nvim/ftplugin: nvim/ftplugin $(XDG_CONFIG_HOME)/nvim
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/nvim/site/autoload/plug.vim: nvim/vim-plug/plug.vim
+$(XDG_CONFIG_HOME)/nvim/coc-settings.json: nvim/coc-settings.json $(XDG_CONFIG_HOME)/nvim
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/taskwarrior/taskrc: taskwarrior/taskrc
+$(XDG_CONFIG_HOME)/nvim/site/autoload/plug.vim: nvim/vim-plug/plug.vim $(XDG_CONFIG_HOME)/nvim
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/git/gitconfig_local: 
+$(XDG_CONFIG_HOME)/taskwarrior/taskrc: taskwarrior/taskrc $(XDG_CONFIG_HOME)
+	ln -s $(PWD)/$< $@
+
+$(XDG_CONFIG_HOME)/git/gitconfig_local: $(XDG_CONFIG_HOME) 
 	echo > $@
 
 install-brew:
