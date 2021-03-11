@@ -90,6 +90,9 @@ let g:coc_global_extensions = [
   \ 'coc-word'
   \ ]
 
+" fugitive
+set diffopt+=vertical "make diffs vertical
+
 "}}}
 "}}}
 
