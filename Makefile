@@ -24,20 +24,11 @@ links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig $(XDG_CONFIG_HOME)/nvim/init
 ~/.gitconfig: git/gitconfig
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/nvim: $(XDG_CONFIG_HOME)
-	mkdir $(XDG_CONFIG_HOME)/nvim
-
-$(XDG_CONFIG_HOME)/nvim/init.vim: nvim/init.vim $(XDG_CONFIG_HOME)/nvim
+$(XDG_CONFIG_HOME)/nvim: config/nvim $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/nvim/ftplugin: nvim/ftplugin $(XDG_CONFIG_HOME)/nvim
-	ln -s $(PWD)/$< $@
-
-$(XDG_CONFIG_HOME)/nvim/coc-settings.json: nvim/coc-settings.json $(XDG_CONFIG_HOME)/nvim
-	ln -s $(PWD)/$< $@
-
-$(XDG_CONFIG_HOME)/nvim/site/autoload/plug.vim: nvim/vim-plug/plug.vim $(XDG_CONFIG_HOME)/nvim
-	ln -s $(PWD)/$< $@
+$(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
+	./install-vimplug.sh
 
 $(XDG_CONFIG_HOME)/taskwarrior/taskrc: taskwarrior/taskrc $(XDG_CONFIG_HOME)
 	ln -s $(PWD)/$< $@
