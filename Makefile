@@ -1,11 +1,11 @@
-~/.dotfiles:
+~/.dotfiles: submodules
 	ln -s . ~/.dotfiles
 
-macos: submodules links homebrew npm 
-	@echo Running installation for MacOS
+macos: ~/.dotfiles links homebrew npm 
+	@echo MacOS installation complete.
 
-kali: submodules links apt npm
-	@echo Running installation for Kali Linux
+kali: ~/.dotfiles links apt npm
+	@echo Kali Linux installation complete.
 
 submodules:
 	git submodule update --init
