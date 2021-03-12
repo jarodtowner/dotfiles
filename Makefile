@@ -50,8 +50,8 @@ $(XDG_CONFIG_HOME)/taskwarrior: config/taskwarrior $(XDG_CONFIG_HOME)
 	rm $@
 	ln -s $(PWD)/$< $@
 
-$(XDG_CONFIG_HOME)/git/gitconfig_local: $(XDG_CONFIG_HOME) 
-	echo > $@
+$(XDG_CONFIG_HOME)/git/gitconfig_local: config/git/gitconfig_local $(XDG_CONFIG_HOME) 
+	[ -f $@ ] || cp $< $@
 
 install-brew:
 	which brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
