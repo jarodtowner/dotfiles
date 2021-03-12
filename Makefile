@@ -15,13 +15,13 @@ links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig $(XDG_CONFIG_HOME)/nvim/init
 	ln -s $(PWD)/$< $@
 	source $<
 
-~/.tmux.conf: tmux/tmux.conf 
+~/.tmux.conf: home/tmux.conf 
 	ln -s $(PWD)/$< $@
 
-~/.bashrc: bash/bashrc 
+~/.bashrc: home/bashrc 
 	ln -s $(PWD)/$< $@
 
-~/.gitconfig: git/gitconfig
+~/.gitconfig: home/gitconfig
 	ln -s $(PWD)/$< $@
 
 $(XDG_CONFIG_HOME)/nvim: config/nvim $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
@@ -30,7 +30,7 @@ $(XDG_CONFIG_HOME)/nvim: config/nvim $(XDG_DATA_HOME)/nvim/site/autoload/plug.vi
 $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
 	./install-vimplug.sh
 
-$(XDG_CONFIG_HOME)/taskwarrior/taskrc: taskwarrior/taskrc $(XDG_CONFIG_HOME)
+$(XDG_CONFIG_HOME)/taskwarrior: config/taskwarrior $(XDG_CONFIG_HOME)
 	ln -s $(PWD)/$< $@
 
 $(XDG_CONFIG_HOME)/git/gitconfig_local: $(XDG_CONFIG_HOME) 
