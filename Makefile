@@ -1,36 +1,53 @@
-macos: submodules $(XDG_CONFIG_HOME) links node
+~/.dotfiles:
+	ln -s . ~/.dotfiles
 
-$(XDG_CONFIG_HOME): 
-	mkdir $(XDG_CONFIG_HOME)
+macos: submodules links homebrew npm 
+	@echo Running installation for MacOS
+
+kali: submodules links apt npm
+	@echo Running installation for Kali Linux
 
 submodules:
 	git submodule update --init
 
-node: homebrew
-	which node && zsh ./packages/npm.sh || true
+npm: 
+	which npm > /dev/null && npm install -g eslint
+	which npm > /dev/null && npm install -g typescript
+	which npm > /dev/null && npm install -g ts-node
+	which npm > /dev/null && npm install -g @types/node
+	which npm > /dev/null && npm install -g typescript-eslint
+	which npm > /dev/null && npm install -g pm2
 
-links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig $(XDG_CONFIG_HOME)/nvim/init.vim $(XDG_CONFIG_HOME)/nvim/coc-settings.json $(XDG_CONFIG_HOME)/nvim/site/autoload/plug.vim $(XDG_CONFIG_HOME)/taskwarrior/taskrc 
+links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig $(XDG_CONFIG_HOME)/nvim $(XDG_CONFIG_HOME)/taskwarrior $(XDG_CONFIG_HOME)/git/gitconfig_local
+
+$(XDG_CONFIG_HOME): 
+	mkdir $(XDG_CONFIG_HOME)
 
 ~/.zshrc: zsh/zshrc 
 	ln -s $(PWD)/$< $@
 	source $<
 
 ~/.tmux.conf: home/tmux.conf 
+	rm $@
 	ln -s $(PWD)/$< $@
 
 ~/.bashrc: home/bashrc 
+	rm $@
 	ln -s $(PWD)/$< $@
 
 ~/.gitconfig: home/gitconfig
+	rm $@
 	ln -s $(PWD)/$< $@
 
 $(XDG_CONFIG_HOME)/nvim: config/nvim $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
+	rm $@
 	ln -s $(PWD)/$< $@
 
 $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
 	./install-vimplug.sh
 
 $(XDG_CONFIG_HOME)/taskwarrior: config/taskwarrior $(XDG_CONFIG_HOME)
+	rm $@
 	ln -s $(PWD)/$< $@
 
 $(XDG_CONFIG_HOME)/git/gitconfig_local: $(XDG_CONFIG_HOME) 
@@ -73,7 +90,6 @@ apt: update-apt
 	apt-get install node
 	apt-get install silversearcher-ag
 	apt-get install tmux
-
 
 yum:
 	yum install -y -s awk
