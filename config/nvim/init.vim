@@ -170,4 +170,3 @@ if filereadable($REPOCONFIG)
 endif
 "}}}
 
-"/* vim: set foldmethod=marker: */
