@@ -3,4 +3,4 @@
 .DS_STORE
 .vscode/
 .vim/
-config/nvim/.netrwhist
+**/.netrwhist
