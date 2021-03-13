@@ -1,7 +1,6 @@
-.oh-my-zsh/
 **.local
 **.env
 .DS_STORE
 .vscode/
 .vim/
-nvim/sessions
+config/nvim/.netrwhist

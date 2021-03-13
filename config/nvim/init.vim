@@ -114,6 +114,7 @@ set smarttab
 set tabstop=2
 set termguicolors
 set updatetime=300
+set foldlevel=99
 filetype on
 filetype plugin on
 syntax enable
