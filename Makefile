@@ -18,7 +18,7 @@ npm:
 	which npm > /dev/null && npm install -g typescript-eslint
 	which npm > /dev/null && npm install -g pm2
 
-links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig $(XDG_CONFIG_HOME)/nvim $(XDG_CONFIG_HOME)/taskwarrior $(XDG_CONFIG_HOME)/git/gitconfig_local
+links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig ~/.ideavim $(XDG_CONFIG_HOME)/nvim $(XDG_CONFIG_HOME)/taskwarrior $(XDG_CONFIG_HOME)/git/gitconfig_local
 
 $(XDG_CONFIG_HOME): 
 	mkdir $(XDG_CONFIG_HOME)
@@ -36,6 +36,10 @@ $(XDG_CONFIG_HOME):
 	ln -s $(PWD)/$< $@
 
 ~/.gitconfig: home/gitconfig
+	rm $@
+	ln -s $(PWD)/$< $@
+
+~/.ideavim: home/ideavim
 	rm $@
 	ln -s $(PWD)/$< $@
 
