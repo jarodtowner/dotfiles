@@ -39,7 +39,7 @@ $(XDG_CONFIG_HOME):
 	rm $@
 	ln -s $(PWD)/$< $@
 
-~/.ideavim: home/ideavim
+~/.ideavimrc: home/ideavimrc
 	rm $@
 	ln -s $(PWD)/$< $@
 
