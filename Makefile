@@ -1,5 +1,5 @@
 ~/.dotfiles: submodules
-	ln -s . ~/.dotfiles
+	ln -s $(PWD) ~/.dotfiles
 
 macos: ~/.dotfiles links homebrew npm 
 	@echo MacOS installation complete.

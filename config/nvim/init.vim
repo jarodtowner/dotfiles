@@ -32,6 +32,7 @@ Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'ianks/vim-tsx'
 
 " Theming
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -129,10 +130,11 @@ autocmd FileType sql setlocal commentstring=--\ %s
 "{{{ Key Remaps			*keymap*
 
 nmap <silent> <C-p> :Files<CR>
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <C-]> <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
+nmap <leader>rn <Plug>(coc-rename)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
