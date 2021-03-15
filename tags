@@ -1,0 +1,7 @@
+external	config/nvim/init.vim	/*external*
+filetype_settings	config/nvim/init.vim	/*filetype_settings*
+functions	config/nvim/init.vim	/*functions*
+keymap	config/nvim/init.vim	/*keymap*
+plugin_config	config/nvim/init.vim	/*plugin_config*
+plugins	config/nvim/init.vim	/*plugins*
+vim_settings	config/nvim/init.vim	/*vim_settings*

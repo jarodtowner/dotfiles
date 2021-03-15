@@ -130,7 +130,7 @@ autocmd FileType sql setlocal commentstring=--\ %s
 "{{{ Key Remaps			*keymap*
 
 nmap <silent> <C-p> :Files<CR>
-nmap <silent> <C-]> <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
