@@ -33,6 +33,8 @@ Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'ianks/vim-tsx'
+Plug 'vim-scripts/SQLUtilities'
+
 
 " Theming
 Plug 'dracula/vim', { 'as': 'dracula' }
