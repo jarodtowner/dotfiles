@@ -34,6 +34,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/SQLUtilities'
+Plug 'stanangeloff/php.vim'
 
 
 " Theming
@@ -79,7 +80,6 @@ let g:coc_global_extensions = [
   \ 'coc-angular',
   \ 'coc-clangd',
   \ 'coc-css',
-  \ 'coc-emoji',
   \ 'coc-eslint', 
   \ 'coc-html',
   \ 'coc-json', 
@@ -90,11 +90,12 @@ let g:coc_global_extensions = [
   \ 'coc-tag',
   \ 'coc-tsserver',
   \ 'coc-vetur',
-  \ 'coc-word'
+  \ 'coc-word',
+  \ 'coc-phpls'
   \ ]
 
 " fugitive
-set diffopt+=vertical "make diffs vertical
+" set diffopt+=vertical "make diffs vertical
 
 "}}}
 "}}}

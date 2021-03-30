@@ -81,6 +81,7 @@ homebrew: install-brew
 	brew list tmux > /dev/null || brew install tmux
 	brew list yarn > /dev/null || brew install yarn
 	brew list youtube-dl > /dev/null || brew install youtube-dl
+	brew list basictex > /dev/null || brew install basictex
 
 update-apt:
 	apt-get update
