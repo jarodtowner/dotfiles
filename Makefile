@@ -86,6 +86,7 @@ homebrew: install-brew
 	brew list yarn > /dev/null || brew install yarn
 	brew list youtube-dl > /dev/null || brew install youtube-dl
 	brew list basictex > /dev/null || brew install basictex
+	brew list kitty > /dev/null || brew install kitty
 
 update-apt:
 	apt-get update
