@@ -1,5 +1,6 @@
+XDG_CONFIG_HOME?=~/.config
 CONFIGFILES=$(wildcard config/*)
-CONFIG=$(subst config/,~/.config/,$(CONFIGFILES))
+CONFIG=$(subst config/,$(XDG_CONFIG_HOME)/,$(CONFIGFILES))
 HOMEFILES=$(wildcard home/*)
 HOMES=$(subst home/,~/.,$(HOMEFILES))
 
@@ -24,7 +25,7 @@ $(XDG_CONFIG_HOME):
 
 # Automatic files
 
-~/.config/%: config/% $(XDG_CONFIG_HOME)
+$(XDG_CONFIG_HOME)/%: config/% $(XDG_CONFIG_HOME)
 	cp -r $(PWD)/$< $@
 
 ~/.%: home/%
