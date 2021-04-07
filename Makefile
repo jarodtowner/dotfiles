@@ -100,6 +100,7 @@ apt: update-apt
 	apt-get install node
 	apt-get install silversearcher-ag
 	apt-get install tmux
+	apt-get install kitty
 
 yum:
 	yum install -y -s awk
