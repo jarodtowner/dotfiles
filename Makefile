@@ -67,17 +67,17 @@ update-apt:
 	apt-get update
 
 apt: update-apt
-	apt-get install awk
-	apt-get install cowsay
-	apt-get install fd-find
-	apt-get install figlet
-	apt-get install neovim
-	apt-get install node
-	apt-get install silversearcher-ag
-	apt-get install tmux
-	apt-get install kitty
-	apt-get install fd-find
-	apt-get install fzf
+	sudo apt-get install awk
+	sudo apt-get install cowsay
+	sudo apt-get install fd-find
+	sudo apt-get install figlet
+	sudo apt-get install neovim
+	sudo apt-get install node
+	sudo apt-get install silversearcher-ag
+	sudo apt-get install tmux
+	sudo apt-get install kitty
+	sudo apt-get install fd-find
+	sudo apt-get install fzf
 
 yum:
 	yum install -y -s awk
