@@ -11,10 +11,18 @@ There is a vim-friendly Table of Contents in (|toc|)[./toc.txt]. It uses vim tag
 
 git clone https://github.com/jarodtowner/dotfiles 
 cd dotfiles
-
-# MacOS
-make macos
+make
 ```
+
+## Special Directories
+
+### Config
+
+Everything in the `config/` directory gets copied to `~/.config`. Everything in this directory *must* be a folder.
+
+### Home
+
+Everything in the `home/` directory gets copied to `~/` with a dot prepended to it. Everything in this directory must be a file.
 
 ## Local Overriding
 

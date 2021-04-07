@@ -3,32 +3,32 @@ CONFIG=$(subst config/,~/.config/,$(CONFIGFILES))
 HOMEFILES=$(wildcard home/*)
 HOMES=$(subst home/,~/.,$(HOMEFILES))
 
-default: submodules ~/.dotfiles $(CONFIG) $(HOMES)
+.PHONY: default submodules install-brew homebrew update-apt apt yum npm clean
 
-~/.dotfiles:
-	ln -s $(PWD)/ $@
+.DEFAULT: default
+
+default: submodules ~/.dotfiles $(CONFIG) $(HOMES) $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
+
+clean:
+	-rm $(HOMES)
+	-rm -rf $(CONFIG)
 
 submodules:
 	git submodule update --init
 
-macos: ~/.dotfiles links homebrew npm 
-	@echo MacOS installation complete.
-
-kali: ~/.dotfiles links apt npm
-	@echo Kali Linux installation complete.
+~/.dotfiles:
+	ln -s $(PWD)/ $@
 
 $(XDG_CONFIG_HOME): 
 	mkdir $(XDG_CONFIG_HOME)
+
+# Automatic files
 
 ~/.config/%: config/% $(XDG_CONFIG_HOME)
 	cp -r $(PWD)/$< $@
 
 ~/.%: home/%
 	cp $(PWD)/$< $@
-
-# ~/.zshrc: zsh/zshrc 
-# 	ln -s $(PWD)/$< $@
-# 	source $<
 
 $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
 	./install-vimplug.sh
@@ -96,3 +96,4 @@ npm:
 	which npm > /dev/null && npm install -g @types/node
 	which npm > /dev/null && npm install -g typescript-eslint
 	which npm > /dev/null && npm install -g pm2
+
