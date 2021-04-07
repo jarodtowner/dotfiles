@@ -101,6 +101,7 @@ apt: update-apt
 	apt-get install silversearcher-ag
 	apt-get install tmux
 	apt-get install kitty
+	apt-get install fd-find
 
 yum:
 	yum install -y -s awk
