@@ -1,5 +1,15 @@
-~/.dotfiles: submodules
-	ln -s $(PWD) ~/.dotfiles
+CONFIGFILES=$(wildcard config/*)
+CONFIG=$(subst config/,~/.config/,$(CONFIGFILES))
+HOMEFILES=$(wildcard home/*)
+HOMES=$(subst home/,~/.,$(HOMEFILES))
+
+default: submodules ~/.dotfiles $(CONFIG) $(HOMES)
+
+~/.dotfiles:
+	ln -s $(PWD)/ $@
+
+submodules:
+	git submodule update --init
 
 macos: ~/.dotfiles links homebrew npm 
 	@echo MacOS installation complete.
@@ -7,59 +17,23 @@ macos: ~/.dotfiles links homebrew npm
 kali: ~/.dotfiles links apt npm
 	@echo Kali Linux installation complete.
 
-submodules:
-	git submodule update --init
-
-npm: 
-	which npm > /dev/null && npm install -g eslint
-	which npm > /dev/null && npm install -g typescript
-	which npm > /dev/null && npm install -g ts-node
-	which npm > /dev/null && npm install -g @types/node
-	which npm > /dev/null && npm install -g typescript-eslint
-	which npm > /dev/null && npm install -g pm2
-
-links: ~/.zshrc ~/.tmux.conf ~/.bashrc ~/.gitconfig ~/.ideavimrc $(XDG_CONFIG_HOME)/nvim $(XDG_CONFIG_HOME)/taskwarrior $(XDG_CONFIG_HOME)/git/gitconfig_local $(XDG_CONFIG_HOME)/kitty
-
 $(XDG_CONFIG_HOME): 
 	mkdir $(XDG_CONFIG_HOME)
 
-~/.zshrc: zsh/zshrc 
-	ln -s $(PWD)/$< $@
-	source $<
+~/.config/%: config/% $(XDG_CONFIG_HOME)
+	cp -r $(PWD)/$< $@
 
-~/.tmux.conf: home/tmux.conf 
-	rm $@
-	ln -s $(PWD)/$< $@
+~/.%: home/%
+	cp $(PWD)/$< $@
 
-~/.bashrc: home/bashrc 
-	rm $@
-	ln -s $(PWD)/$< $@
-
-~/.gitconfig: home/gitconfig
-	rm $@
-	ln -s $(PWD)/$< $@
-
-~/.ideavimrc: home/ideavimrc
-	rm $@
-	ln -s $(PWD)/$< $@
-
-$(XDG_CONFIG_HOME)/nvim: config/nvim $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
-	rm $@
-	ln -s $(PWD)/$< $@
+# ~/.zshrc: zsh/zshrc 
+# 	ln -s $(PWD)/$< $@
+# 	source $<
 
 $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
 	./install-vimplug.sh
 
-$(XDG_CONFIG_HOME)/taskwarrior: config/taskwarrior $(XDG_CONFIG_HOME)
-	rm $@
-	ln -s $(PWD)/$< $@
-
-$(XDG_CONFIG_HOME)/kitty: config/kitty $(XDG_CONFIG_HOME)
-	rm $@
-	ln -s $(PWD)/$< $@
-
-$(XDG_CONFIG_HOME)/git/gitconfig_local: config/git/gitconfig_local $(XDG_CONFIG_HOME) 
-	[ -f $@ ] || cp $< $@
+# Package Managers
 
 install-brew:
 	which brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -114,3 +88,11 @@ yum:
 	yum install -y -s neovim
 	yum install -y -s node
 	yum install -y -s tmux
+
+npm: 
+	which npm > /dev/null && npm install -g eslint
+	which npm > /dev/null && npm install -g typescript
+	which npm > /dev/null && npm install -g ts-node
+	which npm > /dev/null && npm install -g @types/node
+	which npm > /dev/null && npm install -g typescript-eslint
+	which npm > /dev/null && npm install -g pm2
