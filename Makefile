@@ -102,6 +102,7 @@ apt: update-apt
 	apt-get install tmux
 	apt-get install kitty
 	apt-get install fd-find
+	apt-get install fzf
 
 yum:
 	yum install -y -s awk
