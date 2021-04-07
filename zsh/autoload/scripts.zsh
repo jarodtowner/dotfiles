@@ -7,7 +7,6 @@ function scripts() {
     done
   fi
   for f in $(findfunction . --maxdepth 1 -t x); do
-  # for f in $(find . -maxdepth 1 | grep -E ".+\.(zsh|bash|sh)(\n|$)"); do
     OPTIONS="${OPTIONS}${f}\n"
   done
   if [ -f package.json ]; then
