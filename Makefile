@@ -25,8 +25,8 @@ $(XDG_CONFIG_HOME):
 
 # Automatic files
 
-$(XDG_CONFIG_HOME)/%: config/% $(XDG_CONFIG_HOME)
-	cp -r $(PWD)/$< $@
+$(XDG_CONFIG_HOME)/%/: config/% $(XDG_CONFIG_HOME)
+	cp -R $(PWD)/$</ $@
 
 ~/.%: home/%
 	cp $(PWD)/$< $@
