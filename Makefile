@@ -13,6 +13,7 @@ default: .gitsubmodulesinstalled ~/.dotfiles $(CONFIG) $(HOMES) $(XDG_DATA_HOME)
 clean:
 	-rm $(HOMES)
 	-rm -rf $(CONFIG)
+	-rm .gitsubmodulesinstalled
 
 .gitsubmodulesinstalled:
 	git submodule update --init
