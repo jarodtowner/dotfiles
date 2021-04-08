@@ -38,10 +38,10 @@ $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
 
 # Package Managers
 
-install-brew:
+/usr/local/bin/brew:
 	which brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-homebrew: install-brew
+homebrew: /usr/local/bin/brew
 	brew list awk > /dev/null || brew install awk
 	brew list ccls > /dev/null || brew install ccls
 	brew list cowsay > /dev/null || brew install cowsay
@@ -62,8 +62,8 @@ homebrew: install-brew
 	brew list tmux > /dev/null || brew install tmux
 	brew list yarn > /dev/null || brew install yarn
 	brew list youtube-dl > /dev/null || brew install youtube-dl
-	brew list basictex > /dev/null || brew install basictex
-	brew list kitty > /dev/null || brew install kitty
+	# casks
+	which kitty > /dev/null || brew install kitty
 
 update-apt:
 	apt-get update
