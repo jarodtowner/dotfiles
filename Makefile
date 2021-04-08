@@ -4,18 +4,19 @@ CONFIG=$(subst config/,$(XDG_CONFIG_HOME)/,$(CONFIGFILES))
 HOMEFILES=$(wildcard home/*)
 HOMES=$(subst home/,~/.,$(HOMEFILES))
 
-.PHONY: default submodules install-brew homebrew update-apt apt yum npm clean
+.PHONY: default install-brew homebrew update-apt apt yum npm clean
 
 .DEFAULT: default
 
-default: submodules ~/.dotfiles $(CONFIG) $(HOMES) $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
+default: .gitsubmodulesinstalled ~/.dotfiles $(CONFIG) $(HOMES) $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
 
 clean:
 	-rm $(HOMES)
 	-rm -rf $(CONFIG)
 
-submodules:
+.gitsubmodulesinstalled:
 	git submodule update --init
+	touch $@
 
 ~/.dotfiles:
 	ln -s $(PWD)/ $@
