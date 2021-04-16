@@ -110,7 +110,7 @@ alias run="scripts"
 alias ls="ls -G"
 alias la="ls -A"
 alias ll="ls -Al"
-alias lll="ls -l | awk '{print \$NF}'"
+alias lll="ls -l | tail -n \$(( \$(ls -l | wc -l) - 1 )) | awk '{print \$NF}'"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
