@@ -1,5 +1,4 @@
 aliases	zsh/zshrc	/*aliases*
-
 colours	home/tmux.conf	/*colours*
 exports	zsh/zshrc	/*exports*
 external	config/nvim/init.vim	/*external*
