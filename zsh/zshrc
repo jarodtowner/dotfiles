@@ -25,6 +25,7 @@ export TIMERC=$XDG_CONFIG_HOME/timewarrior/timerc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
 export EMPTY_COMMAND='' # If an empty command is entered, this command will be run instead
 export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:/sbin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
+export EDITOR="nvim"
 export TASKDDATA=/Users/jarod/.local/share/taskd
 #}}}
 
@@ -69,17 +70,18 @@ function dev-tmux() {
   tmux new-session -s $1 \; rename-window 'server' \; new-window \; rename-window 'editor' \; new-window \; rename-window 'tunnel' \; attach
 }
 
+alias findfunction=$(which fd > /dev/null && echo "fd" || which fdfind > /dev/null && echo "fdfind")
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+  findfunction --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+  findfunction --type d --hidden --follow --exclude ".git" . "$1"
 }
 #}}}
 
