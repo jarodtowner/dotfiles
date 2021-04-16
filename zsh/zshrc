@@ -55,8 +55,18 @@ bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
 PROMPT_EOL_MARK=''
 PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
+
+# Make up & down keys search based on what's already entered
+case $OS in
+'MacOS')
+  bindkey '\e[A' history-beginning-search-backward
+  bindkey '\e[B' history-beginning-search-forward
+;;
+'Linux')
+  bindkey "^[OA" history-beginning-search-backward
+  bindkey "^[OB" history-beginning-search-forward
+;;
+esac
 #}}}
 
 #{{{ *functions*
