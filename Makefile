@@ -99,4 +99,5 @@ npm:
 	which npm > /dev/null && npm install -g @types/node
 	which npm > /dev/null && npm install -g typescript-eslint
 	which npm > /dev/null && npm install -g pm2
+	which npm > /dev/null && npm install -g graphql-language-service-cli
 

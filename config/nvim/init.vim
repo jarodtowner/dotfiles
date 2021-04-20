@@ -34,6 +34,7 @@ Plug 'mxw/vim-jsx'
 Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/SQLUtilities'
 Plug 'stanangeloff/php.vim'
+Plug 'jparise/vim-graphql'
 
 " Linting
 Plug 'stylelint/stylelint'
@@ -141,6 +142,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> <leader>act :CocAction<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
