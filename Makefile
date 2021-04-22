@@ -8,7 +8,7 @@ HOMES=$(subst home/,~/.,$(HOMEFILES))
 
 .DEFAULT: default
 
-default: .gitsubmodulesinstalled ~/.dotfiles $(CONFIG) $(HOMES) $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
+default: .gitsubmodulesinstalled home/zshrc ~/.dotfiles $(CONFIG) $(HOMES) $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
 
 clean:
 	-rm $(HOMES)
@@ -24,6 +24,9 @@ clean:
 
 $(XDG_CONFIG_HOME): 
 	mkdir $(XDG_CONFIG_HOME)
+
+home/zshrc: zsh/zshrc
+	ln -s $(PWD)/zsh/zshrc $(PWD)/home/zshrc
 
 # Automatic files
 
