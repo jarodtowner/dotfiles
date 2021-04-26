@@ -35,6 +35,7 @@ Plug 'mxw/vim-jsx'
 Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/SQLUtilities'
 Plug 'stanangeloff/php.vim'
+Plug 'kmyk/brainfuck-highlight.vim'
 
 
 " Theming
