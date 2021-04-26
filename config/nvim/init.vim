@@ -25,7 +25,6 @@ Plug 'ryanoasis/vim-devicons'
 " Syntax & Completion
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'elzr/vim-json'
-Plug 'eslint/eslint'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'othree/html5.vim'
@@ -36,7 +35,11 @@ Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/SQLUtilities'
 Plug 'stanangeloff/php.vim'
 Plug 'kmyk/brainfuck-highlight.vim'
+Plug 'jparise/vim-graphql'
 
+" Linting
+Plug 'stylelint/stylelint'
+Plug 'eslint/eslint'
 
 " Theming
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -84,15 +87,16 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-html',
   \ 'coc-json', 
+  \ 'coc-phpls',
   \ 'coc-prettier',
   \ 'coc-python',
   \ 'coc-snippets',
   \ 'coc-sql',
+  \ 'coc-stylelint',
   \ 'coc-tag',
   \ 'coc-tsserver',
   \ 'coc-vetur',
-  \ 'coc-word',
-  \ 'coc-phpls'
+  \ 'coc-word'
   \ ]
 
 " fugitive
@@ -138,7 +142,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gbn :bnext<CR>
+nmap <silent> gbp :bprev<CR>
 nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> <leader>act :CocAction<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv

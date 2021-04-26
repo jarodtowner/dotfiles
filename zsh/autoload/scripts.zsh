@@ -2,7 +2,7 @@ function scripts() {
   OPTIONS=""
   alias findfunction=$(which fd > /dev/null && echo "fd" || which fdfind > /dev/null && echo "fdfind")
   if [ -f Makefile ]; then
-    for f in $(cat Makefile | grep -e "^[a-zA-Z0-9-]*:" | sed "s/:.*//g"); do
+    for f in $(cat Makefile | grep -oe "^[a-zA-Z0-9\.]*:"); do
       OPTIONS="${OPTIONS}make ${f}\n"
     done
   fi

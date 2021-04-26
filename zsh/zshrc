@@ -3,8 +3,7 @@
 #
 #|exports| Exported Variables
 #|modules| Modules
-#|options| Set Options
-#|line_editor| Settings for the line editor
+#|options| Set Options |line_editor| Settings for the line editor
 #|functions| Custom functions
 #|aliases| Command aliases
 #|external| Externally loaded files
@@ -25,6 +24,7 @@ export TIMERC=$XDG_CONFIG_HOME/timewarrior/timerc
 export FZF_DEFAULT_COMMAND='fd -H --type f'
 export EMPTY_COMMAND='' # If an empty command is entered, this command will be run instead
 export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:/sbin:/usr/local/sbin:/usr/local/opt/inetutils/libexec/gnubin:/opt/apache-maven-3.6.3/bin:/usr/bin:/bin:/usr/sbin:/usr/local/lib/node_modules:~/bin:~/Library/Android/sdk/platform-tools
+export EDITOR="nvim"
 export TASKDDATA=/Users/jarod/.local/share/taskd
 #}}}
 
@@ -54,8 +54,18 @@ bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^H' backward-delete-char
 PROMPT_EOL_MARK=''
 PROMPT_POSITION='bottom' # This is managed by the pin prompt plugin
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
+
+# Make up & down keys search based on what's already entered
+case $(uname -s) in
+'MacOS')
+  bindkey '\e[A' history-beginning-search-backward
+  bindkey '\e[B' history-beginning-search-forward
+;;
+'Linux')
+  bindkey "^[OA" history-beginning-search-backward
+  bindkey "^[OB" history-beginning-search-forward
+;;
+esac
 #}}}
 
 #{{{ *functions*
@@ -69,17 +79,18 @@ function dev-tmux() {
   tmux new-session -s $1 \; rename-window 'server' \; new-window \; rename-window 'editor' \; new-window \; rename-window 'tunnel' \; attach
 }
 
+alias findfunction=$(which fd > /dev/null && echo "fd" || which fdfind > /dev/null && echo "fdfind")
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+  findfunction --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+  findfunction --type d --hidden --follow --exclude ".git" . "$1"
 }
 #}}}
 
@@ -98,7 +109,7 @@ alias run="scripts"
 alias ls="ls -G"
 alias la="ls -A"
 alias ll="ls -Al"
-alias lll="ls -l | awk '{print \$NF}'"
+alias lll="ls -l | tail -n \$(( \$(ls -l | wc -l) - 1 )) | awk '{print \$NF}'"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
@@ -114,6 +125,14 @@ alias vsplit="vsplit_tab"
 alias opg="op get"
 alias opgi="op get item"
 
+# Set copy command based on what's installed
+which pbcopy > /dev/null && alias copy="pbcopy"
+which xclip > /dev/null && alias copy="xclip -i -sel clip"
+
+# Set paste command based on what's installed
+which pbpaste > /dev/null && alias paste="pbpaste"
+which xclip > /dev/null && alias paste="xclip -o -sel clip"
+
 alias -s txt=vim
 alias -s yaml=vim
 alias -s yml=vim
@@ -123,9 +142,9 @@ alias -s ts=ts-node
 alias -s py=python3
 
 alias -g L="| less"
-alias -g C="| pbcopy"
-alias -g Cerr="2>&1 > /dev/null | pbcopy"
-alias -g V="pbpaste"
+alias -g C="| copy"
+alias -g Cerr="2>&1 > /dev/null | copy"
+alias -g V="paste"
 alias -g H="| head -n"
 alias -g T="| tail -n"
 alias -g F="| ag"

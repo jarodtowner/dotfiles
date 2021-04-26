@@ -5,3 +5,4 @@
 .vim/
 .netrwhist
 .gitsubmodulesinstalled
+init_local.vim
