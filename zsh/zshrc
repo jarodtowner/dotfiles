@@ -170,3 +170,11 @@ fi
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/.fzf.zsh
  # }}}
 
+
+# If the shell is just starting up, clear to position the prompt
+if [ ! $FIRST_RUN ]
+then
+  clear
+fi
+
+export FIRST_RUN=true
