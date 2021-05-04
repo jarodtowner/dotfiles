@@ -95,8 +95,7 @@ let g:coc_global_extensions = [
   \ 'coc-stylelint',
   \ 'coc-tag',
   \ 'coc-tsserver',
-  \ 'coc-vetur',
-  \ 'coc-word'
+  \ 'coc-vetur'
   \ ]
 
 " fugitive
