@@ -9,7 +9,7 @@ There is a vim-friendly Table of Contents in (|toc|)[./toc.txt]. It uses vim tag
 ```zsh
 # Download the repo
 
-git clone https://github.com/jarodtowner/dotfiles 
+git clone https://github.com/ashleytowner/dotfiles 
 cd dotfiles
 make
 ```
