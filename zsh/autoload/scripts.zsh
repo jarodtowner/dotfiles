@@ -7,7 +7,7 @@ function scripts() {
     done
   fi
   for f in $(findfunction . --maxdepth 1 -t x); do
-    OPTIONS="${OPTIONS}${f}\n"
+    OPTIONS="${OPTIONS}./${f}\n"
   done
   if [ -f package.json ]; then
     if [ -f yarn.lock ]; then
