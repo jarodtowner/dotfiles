@@ -1,0 +1,3 @@
+--langmap=css:+.scss
+--langmap=css:+.sass
+--regex-css=/(--[A-Za-z0-9_-]+):/\1/v,variable,variables/

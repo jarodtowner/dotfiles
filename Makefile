@@ -36,6 +36,9 @@ $(XDG_CONFIG_HOME)/%/: config/% $(XDG_CONFIG_HOME)
 ~/.%: home/%
 	cp $(PWD)/$< $@
 
+~/.ctags.d: ctags
+	ln -s $(PWD)/$< $@
+
 $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
 	./install-vimplug.sh
 
