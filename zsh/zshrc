@@ -179,4 +179,12 @@ then
   clear
 fi
 
+function chpwd() {
+  type onLeaveDir > /dev/null && onLeaveDir
+  type onLeaveDir > /dev/null && unset -f onLeaveDir
+  type onEnterDir > /dev/null && unset -f onEnterDir
+  [ -f ./.zshrc ] && source ./.zshrc
+  type onEnterDir > /dev/null && onEnterDir
+}
+
 export FIRST_RUN=true
