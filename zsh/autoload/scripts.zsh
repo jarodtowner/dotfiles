@@ -1,3 +1,19 @@
+# -- Features --
+#   Detects commands / scripts from the following file types:
+#      * package.json (autodetects npm / yarn usage)
+#      * Makefile
+#      * Executables
+#
+#   It then presents all of the available commands in the current directory
+#   in a fuzzy search. 
+#
+#   Once you select one, it will automatically add it to your command history
+#
+# -- Dependencies --
+#   * fd / fdfind
+#   * grep (with extended regex support)
+#   * jq
+#   * fzf
 function scripts() {
   OPTIONS=""
   alias findfunction=$(which fd > /dev/null && echo "fd" || which fdfind > /dev/null && echo "fdfind")
