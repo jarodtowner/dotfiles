@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -36,6 +37,7 @@ Plug 'vim-scripts/SQLUtilities'
 Plug 'stanangeloff/php.vim'
 Plug 'kmyk/brainfuck-highlight.vim'
 Plug 'jparise/vim-graphql'
+Plug 'clones/vim-zsh'
 
 " Linting
 Plug 'stylelint/stylelint'
@@ -181,4 +183,3 @@ if filereadable($REPOCONFIG)
   source $REPOCONFIG
 endif
 "}}}
-
