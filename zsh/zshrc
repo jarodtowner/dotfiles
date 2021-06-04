@@ -128,12 +128,12 @@ alias opg="op get"
 alias opgi="op get item"
 
 # Set copy command based on what's installed
-which pbcopy > /dev/null && alias copy="pbcopy"
-which xclip > /dev/null && alias copy="xclip -i -sel clip"
+which pbcopy > /dev/null && alias yank="pbcopy"
+which xclip > /dev/null && alias yank="xclip -i -sel clip"
 
 # Set paste command based on what's installed
-which pbpaste > /dev/null && alias paste="pbpaste"
-which xclip > /dev/null && alias paste="xclip -o -sel clip"
+which pbpaste > /dev/null && alias put="pbpaste"
+which xclip > /dev/null && alias put="xclip -o -sel clip"
 
 alias -s txt=vim
 alias -s yaml=vim
@@ -144,9 +144,7 @@ alias -s ts=ts-node
 alias -s py=python3
 
 alias -g L="| less"
-alias -g C="| copy"
-alias -g Cerr="2>&1 > /dev/null | copy"
-alias -g V="paste"
+alias -g Cerr="2>&1 > /dev/null | yank"
 alias -g H="| head -n"
 alias -g T="| tail -n"
 alias -g F="| ag"
