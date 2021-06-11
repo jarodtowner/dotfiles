@@ -70,11 +70,6 @@ esac
 
 #{{{ *functions*
 
-# Get one specific line of stdin
-function getLine() {
-  head -n $1 | tail -n 1
-}
-
 function dev-tmux() {
   tmux new-session -s $1 \; rename-window 'server' \; new-window \; rename-window 'editor' \; new-window \; rename-window 'tunnel' \; attach
 }
