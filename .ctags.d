@@ -1,0 +1,1 @@
+stowed/ctags/.ctags.d
