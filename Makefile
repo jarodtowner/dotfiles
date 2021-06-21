@@ -1,18 +1,12 @@
 XDG_CONFIG_HOME?=~/.config
-CONFIGFILES=$(wildcard config/*)
-CONFIG=$(subst config/,$(XDG_CONFIG_HOME)/,$(CONFIGFILES))
-HOMEFILES=$(wildcard home/*)
-HOMES=$(subst home/,~/.,$(HOMEFILES))
 
 .PHONY: default install-brew homebrew update-apt apt yum npm clean
 
 .DEFAULT: default
 
-default: .gitsubmodulesinstalled home/zshrc ~/.dotfiles $(CONFIG) $(HOMES) $(XDG_DATA_HOME)/nvim/site/autoload/plug.vim
+default: .gitsubmodulesinstalled ~/.dotfiles 
 
 clean:
-	-rm $(HOMES)
-	-rm -rf $(CONFIG)
 	-rm .gitsubmodulesinstalled
 
 .gitsubmodulesinstalled:
@@ -24,23 +18,6 @@ clean:
 
 $(XDG_CONFIG_HOME): 
 	mkdir $(XDG_CONFIG_HOME)
-
-home/zshrc: zsh/zshrc
-	ln -s $(PWD)/zsh/zshrc $(PWD)/home/zshrc
-
-# Automatic files
-
-$(XDG_CONFIG_HOME)/%/: config/% $(XDG_CONFIG_HOME)
-	cp -R $(PWD)/$</ $@
-
-~/.%: home/%
-	cp $(PWD)/$< $@
-
-~/.ctags.d: ctags
-	ln -s $(PWD)/$< $@
-
-$(XDG_DATA_HOME)/nvim/site/autoload/plug.vim:
-	./install-vimplug.sh
 
 # Package Managers
 
