@@ -3,7 +3,7 @@
 .DS_STORE
 .vscode/
 .vim/
-.netrwhist
+**.netrwhist
 .gitsubmodulesinstalled
 init_local.vim
 home/zshrc
