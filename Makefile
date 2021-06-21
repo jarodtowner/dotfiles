@@ -24,30 +24,8 @@ $(XDG_CONFIG_HOME):
 /usr/local/bin/brew:
 	which brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-homebrew: /usr/local/bin/brew
-	brew list awk > /dev/null || brew install awk
-	brew list ccls > /dev/null || brew install ccls
-	brew list cowsay > /dev/null || brew install cowsay
-	brew list ctags > /dev/null || brew install ctags
-	brew list ctags > /dev/null || brew install ctags
-	brew list fd > /dev/null || brew install fd
-	brew list figlet > /dev/null || brew install figlet
-	brew list jq > /dev/null || brew install jq
-	brew list lolcat > /dev/null || brew install lolcat
-	brew list neovim > /dev/null || brew install neovim
-	brew list node > /dev/null || brew install node
-	brew list python3 > /dev/null || brew install python3
-	brew list ripgrep > /dev/null || brew install ripgrep
-	brew list ruby > /dev/null || brew install ruby
-	brew list shpotify > /dev/null || brew install shpotify
-	brew list telnet > /dev/null || brew install telnet
-	brew list the_silver_searcher > /dev/null || brew install the_silver_searcher
-	brew list tmux > /dev/null || brew install tmux
-	brew list yarn > /dev/null || brew install yarn
-	brew list youtube-dl > /dev/null || brew install youtube-dl
-	brew list netcat > /dev/null || brew install netcat
-	# casks
-	which kitty > /dev/null || brew install kitty
+homebrew: /usr/local/bin/brew Brewfile
+	brew bundle
 
 update-apt:
 	apt-get update
