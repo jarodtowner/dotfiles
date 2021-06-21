@@ -68,6 +68,7 @@ homebrew: /usr/local/bin/brew
 	brew list tmux > /dev/null || brew install tmux
 	brew list yarn > /dev/null || brew install yarn
 	brew list youtube-dl > /dev/null || brew install youtube-dl
+	brew list netcat > /dev/null || brew install netcat
 	# casks
 	which kitty > /dev/null || brew install kitty
 
