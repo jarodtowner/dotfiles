@@ -151,7 +151,7 @@ alias -g Last="| awk '{print \$NF}'"
 # {{{ *external*
 
 # Autoload directory
-for file in ~/.config/zsh/autoload; do
+for file in ~/.config/zsh/autoload/*; do
 	if [ $(echo "$file" | grep -vE ".disable$") ]; then
 		source "$file"
 	fi
