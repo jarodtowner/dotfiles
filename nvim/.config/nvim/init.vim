@@ -173,7 +173,7 @@ endfunction
 "}}}
 
 "{{{ External Files			*external*
-let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
+let $LOCALFILE=expand("~/.config/local_override/nvim/init.vim")
 if filereadable($LOCALFILE)
     source $LOCALFILE
 endif

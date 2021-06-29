@@ -16,7 +16,7 @@
 [credential]
   helper = store
 [include]
-  path = ~/.config/git/gitconfig_local
+  path = ~/.config/local_override/git/.gitconfig
 [difftool]
   prompt = true
 [diff]
