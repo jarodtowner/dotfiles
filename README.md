@@ -2,8 +2,6 @@
 
 Version-controlled configuration files for my personal computers.
 
-There is a vim-friendly Table of Contents in (|toc|)[./toc.txt]. It uses vim tags.
-
 ## Installation
 
 ```zsh
@@ -11,18 +9,15 @@ There is a vim-friendly Table of Contents in (|toc|)[./toc.txt]. It uses vim tag
 
 git clone https://github.com/ashleytowner/dotfiles 
 cd dotfiles
-make
+
+# Run the install script
+chmod +x install.sh
+./install.sh
 ```
 
-## Special Directories
+## Stow
 
-### Config
-
-Everything in the `config/` directory gets copied to `~/.config`. Everything in this directory *must* be a folder.
-
-### Home
-
-Everything in the `home/` directory gets copied to `~/` with a dot prepended to it. Everything in this directory must be a file.
+This uses stow to manage the locations of config files.
 
 ## Local Overriding
 
