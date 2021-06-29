@@ -7,3 +7,4 @@
 .gitsubmodulesinstalled
 init_local.vim
 home/zshrc
+.zcompdump
