@@ -7,7 +7,7 @@
   cb = "!f() { git clean-branches; }; f"
   b = "branch"
   s = "stash"
-  p = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
+  p = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD) $@; }; f"
   aa = "add --all"
   cm = "commit -m"
   bsc = "branch --show-current"
