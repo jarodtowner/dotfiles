@@ -65,13 +65,3 @@ alias opgi="op get item"
 
 # |external|
 
-# Autoload directory
-for file in ~/.dotfiles/bash/autoload/*.sh; do
-  source "$file"
-done
-
-# Source local changes to zshrc
-if [ -f $XDG_CONFIG_HOME/bash/.bash_local ]; then
-  source $XDG_CONFIG_HOME/bash/.bash_local
-fi
-
