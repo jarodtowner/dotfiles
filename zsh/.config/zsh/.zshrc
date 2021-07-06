@@ -38,6 +38,7 @@ zmodload zsh/computil
 #{{{ *options*
 autoload -Uz compinit && compinit
 setopt autocd
+setopt AUTO_PUSHD
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:git:*' user-commands fco:'description for foo'
@@ -105,8 +106,6 @@ alias ls="ls -G"
 alias la="ls -A"
 alias ll="ls -Al"
 alias lll="ls -l | tail -n \$(( \$(ls -l | wc -l) - 1 )) | awk '{print \$NF}'"
-# alias ...="cd ../.."
-# alias ....="cd ../../.."
 alias -g ...="../.."
 alias -g ....="../../.."
 
