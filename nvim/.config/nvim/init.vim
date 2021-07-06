@@ -94,7 +94,7 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-snippets',
   \ 'coc-sql',
-  \ 'coc-stylelint',
+  \ 'coc-stylelintplus',
   \ 'coc-tag',
   \ 'coc-tsserver',
   \ 'coc-vetur'
