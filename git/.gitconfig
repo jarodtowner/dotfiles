@@ -3,7 +3,8 @@
   co = "checkout"
   cob = "checkout -b"
   gco = "!f() { git checkout $(git branch | grep $1 | head -n 1); }; f"
-  fco = "!f() { git checkout $(git branch | sed 's/*/ /g' | fzf); }; f"
+    fco = "!f() { if [ $1 ]; then git checkout $(git branch | sed 's/*/ /g' | fzf -1 --query $1); else git checkout $(git branch | sed 's/*/ /g' | fzf); fi }; f"
+  ; SCRIPT=$(echo $OPTIONS | grep -ve "^$" | fzf -1 --query $1)
   cb = "!f() { git clean-branches; }; f"
   b = "branch"
   s = "stash"
